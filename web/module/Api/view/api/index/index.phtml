@@ -1,0 +1,275 @@
+<!-- Page Heading/Breadcrumbs -->
+<h1 class="mt-4 mb-3">API
+</h1>
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">
+    <a href="<?php echo $this->url(); ?>">Home</a>
+  </li>
+  <li class="breadcrumb-item active">API</li>
+</ol>
+
+<div class="mb-4" id="accordion" role="tablist" aria-multiselectable="true">
+  <div class="card">
+    <div class="card-header" role="tab" id="headingGeoip">
+      <h5 class="mb-0">
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapseGeoip" aria-expanded="true" aria-controls="collapseGeoip">Sandbox Access Keys</a>
+      </h5>
+    </div>
+    <div id="collapseGeoip" class="collapse show" role="tabpanel" aria-labelledby="headingGeoip">
+      <div class="card-body">
+        <strong>Endpoint:</strong> <?php echo $this->config['baseUrl']; ?><br>
+        <strong>Access Key:</strong> <?php echo $this->config['api']['access_key']; ?><br>
+        <strong>Secret Key:</strong> <?php echo $this->config['api']['secret_key']; ?><br>
+        <strong>Example:</strong><br>
+        <pre>
+          curl -v \
+           -H 'Access-Key: <?php echo $this->config['api']['access_key']; ?>' \
+           -H 'Secret-Key: <?php echo $this->config['api']['secret_key']; ?>' \
+           '<?php echo $this->config['baseUrl']; ?>api/geoip'
+        </pre>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header" role="tab" id="headingGeoIp">
+      <h5 class="mb-0">
+        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseGeoIp" aria-expanded="false" aria-controls="collapseGeoIp">GEOIP</a>
+      </h5>
+    </div>
+    <div id="collapseGeoIp" class="collapse" role="tabpanel" aria-labelledby="headingGeoIp">
+      <div class="card-body">
+        <strong>Endpoint:</strong> <?php echo $this->config['baseUrl']; ?>api/geoip<br>
+        <strong>Method:</strong> GET<br>
+        <strong>Parameter:</strong> <ul>
+          <li>ip = optional to force selected IP. Example <?php echo $this->config['baseUrl']; ?>api/geoip?ip=61.198.81.247 to force Japan IP.</li>
+        </ul>
+        <strong>Example:</strong><br>
+        <pre>
+          curl -v \
+           -H 'Access-Key: <?php echo $this->config['api']['access_key']; ?>' \
+           -H 'Secret-Key: <?php echo $this->config['api']['secret_key']; ?>' \
+           '<?php echo $this->config['baseUrl']; ?>api/geoip'
+        </pre>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header" role="tab" id="headingOrganization">
+      <h5 class="mb-0">
+        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseOrganization" aria-expanded="false" aria-controls="collapseOrganization">Volunteer Organizations</a>
+      </h5>
+    </div>
+    <div id="collapseOrganization" class="collapse" role="tabpanel" aria-labelledby="headingOrganization">
+      <div class="card-body">
+        <strong>Endpoint:</strong> <?php echo $this->config['baseUrl']; ?>api/organizations<br>
+        <strong>Method:</strong> GET<br>
+        <strong>Example:</strong><br>
+        <pre>
+          curl -v \
+           -H 'Access-Key: <?php echo $this->config['api']['access_key']; ?>' \
+           -H 'Secret-Key: <?php echo $this->config['api']['secret_key']; ?>' \
+           '<?php echo $this->config['baseUrl']; ?>api/organizations'
+        </pre>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header" role="tab" id="headingVolunteer">
+      <h5 class="mb-0">
+        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseVolunteer" aria-expanded="false" aria-controls="collapseVolunteer">Volunteers</a>
+      </h5>
+    </div>
+    <div id="collapseVolunteer" class="collapse" role="tabpanel" aria-labelledby="headingVolunteer">
+      <div class="card-body">
+        <strong>Endpoint:</strong> <?php echo $this->config['baseUrl']; ?>api/volunteers<br>
+        <strong>Method:</strong> GET<br>
+        <strong>Parameter:</strong> <ul>
+          <li>user_id = Optional. search for user_id. Example <?php echo $this->config['baseUrl']; ?>api/volunteers?user_id=1</li>
+          <li>first_name_keyword = Optional. search for %first name%. Example <?php echo $this->config['baseUrl']; ?>api/volunteers?first_name_keyword=c</li>
+          <li>last_name_keyword = Optional. search for %last name%. Example <?php echo $this->config['baseUrl']; ?>api/volunteers?last_name_keyword=c</li>
+          <li>organization_id = Optional. search for organization. Example <?php echo $this->config['baseUrl']; ?>api/volunteers?organization_id=3</li>
+          <li>country_code = Optional. search for country. Example <?php echo $this->config['baseUrl']; ?>api/volunteers?country_code=JP</li>
+          <li>city_keyword = Optional. search for city. Example <?php echo $this->config['baseUrl']; ?>api/volunteers?city_keyword=Tokyo</li>
+          <li>page = Optional. current page. Default 1. Example <?php echo $this->config['baseUrl']; ?>api/volunteers?page=1</li>
+          <li>item_count_per_page = Optional. item count per page. Default 10. Example <?php echo $this->config['baseUrl']; ?>api/volunteers?page=2&item_count_per_page=3</li>
+        </ul>
+        <strong>Notes:</strong> <ul>
+          <li>result distance is in KM.</li>
+        </ul>
+        <strong>Example:</strong><br>
+        <pre>
+          curl -v \
+           -H 'Access-Key: <?php echo $this->config['api']['access_key']; ?>' \
+           -H 'Secret-Key: <?php echo $this->config['api']['secret_key']; ?>' \
+           '<?php echo $this->config['baseUrl']; ?>api/volunteers'
+        </pre>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header" role="tab" id="headingOfw">
+      <h5 class="mb-0">
+        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseOfw" aria-expanded="false" aria-controls="collapseOfw">OFWs</a>
+      </h5>
+    </div>
+    <div id="collapseOfw" class="collapse" role="tabpanel" aria-labelledby="headingOfw">
+      <div class="card-body">
+        <strong>Endpoint:</strong> <?php echo $this->config['baseUrl']; ?>api/ofws<br>
+        <strong>Method:</strong> GET<br>
+        <strong>Parameter:</strong> <ul>
+          <li>user_id = Optional. search for user_id. Example <?php echo $this->config['baseUrl']; ?>api/ofws?user_id=1</li>
+          <li>first_name_keyword = Optional. search for %first name%. Example <?php echo $this->config['baseUrl']; ?>api/ofws?first_name_keyword=c</li>
+          <li>last_name_keyword = Optional. search for %last name%. Example <?php echo $this->config['baseUrl']; ?>api/ofws?last_name_keyword=c</li>
+          <li>page = Optional. current page. Default 1. Example <?php echo $this->config['baseUrl']; ?>api/ofws?page=1</li>
+          <li>item_count_per_page = Optional. item count per page. Default 10. Example <?php echo $this->config['baseUrl']; ?>api/ofws?page=2&item_count_per_page=3</li>
+        </ul>
+        <strong>Notes:</strong> <ul>
+          <li>result distance is in KM.</li>
+        </ul>
+        <strong>Example:</strong><br>
+        <pre>
+          curl -v \
+           -H 'Access-Key: <?php echo $this->config['api']['access_key']; ?>' \
+           -H 'Secret-Key: <?php echo $this->config['api']['secret_key']; ?>' \
+           '<?php echo $this->config['baseUrl']; ?>api/ofws'
+        </pre>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header" role="tab" id="headingCountries">
+      <h5 class="mb-0">
+        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseCountries" aria-expanded="false" aria-controls="collapseCountries">Countries</a>
+      </h5>
+    </div>
+    <div id="collapseCountries" class="collapse" role="tabpanel" aria-labelledby="headingCountries">
+      <div class="card-body">
+        <strong>Endpoint:</strong> <?php echo $this->config['baseUrl']; ?>api/countries<br>
+        <strong>Method:</strong> GET<br>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header" role="tab" id="headingOFWRegistration">
+      <h5 class="mb-0">
+        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseOFWRegistration" aria-expanded="false" aria-controls="collapseOFWRegistration">O.F.W Registration</a>
+      </h5>
+    </div>
+    <div id="collapseOFWRegistration" class="collapse" role="tabpanel" aria-labelledby="headingOFWRegistration">
+      <div class="card-body">
+        <strong>Endpoint:</strong> <?php echo $this->config['baseUrl']; ?>api/ofw-registration<br>
+        <strong>Method:</strong> POST<br>
+        <strong>Parameter:</strong> <ul>
+          <li>email = Required.</li>
+          <li>password = Required.</li>
+          <li>first_name = Required.</li>
+          <li>middle_name = Required.</li>
+          <li>last_name = Required.</li>
+          <li>country_id = Required.</li>
+          <li>city = Required.</li>
+          <li>mobile_no = Required.</li>
+          <li>profile_picture = Required. Image File</li>
+        </ul>
+        <strong>Example PHP:</strong>
+          <a href="https://pastebin.com/CL4SEF9w" target="_blank">https://pastebin.com/CL4SEF9w</a>
+          <br>
+          <strong>Returns JSON format:</strong>
+          <ul>
+            <li>user_id = User ID</li>
+            <li>success = success messages</li>
+            <li>error = errors messages</li>
+          </ul>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header" role="tab" id="headingVolunteerRegistration">
+      <h5 class="mb-0">
+        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseVolunteerRegistration" aria-expanded="false" aria-controls="collapseVolunteerRegistration">Volunteer Registration</a>
+      </h5>
+    </div>
+    <div id="collapseVolunteerRegistration" class="collapse" role="tabpanel" aria-labelledby="headingVolunteerRegistration">
+      <div class="card-body">
+        <strong>Endpoint:</strong> <?php echo $this->config['baseUrl']; ?>api/volunteer-registration<br>
+        <strong>Method:</strong> POST<br>
+        <strong>Parameter:</strong> <ul>
+          <li>email = Required.</li>
+          <li>password = Required.</li>
+          <li>organization_id = Required.</li>
+          <li>first_name = Required.</li>
+          <li>middle_name = Required.</li>
+          <li>last_name = Required.</li>
+          <li>country_id = Required.</li>
+          <li>city = Required.</li>
+          <li>mobile_no = Required.</li>
+          <li>profile_picture = Required. Image File</li>
+        </ul>
+        <strong>Example PHP:</strong>
+          <a href="https://pastebin.com/Nv89eV2z" target="_blank">https://pastebin.com/Nv89eV2z</a>
+          <br>
+          <strong>Returns JSON format:</strong>
+          <ul>
+            <li>user_id = User ID</li>
+            <li>success = success messages</li>
+            <li>error = errors messages</li>
+          </ul>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header" role="tab" id="headingLogin">
+      <h5 class="mb-0">
+        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseLogin" aria-expanded="false" aria-controls="collapseLogin">Login</a>
+      </h5>
+    </div>
+    <div id="collapseLogin" class="collapse" role="tabpanel" aria-labelledby="headingLogin">
+      <div class="card-body">
+        <strong>Endpoint:</strong> <?php echo $this->config['baseUrl']; ?>api/login<br>
+        <strong>Method:</strong> POST<br>
+        <strong>Parameter:</strong> <ul>
+          <li>email = Required.</li>
+          <li>password = Required.</li>
+        </ul>
+        <strong>Example PHP:</strong>
+        <a href="https://pastebin.com/L9M5vzVR" target="_blank">https://pastebin.com/L9M5vzVR</a>
+        <br>
+        <strong>Returns JSON format:</strong>
+        <ul>
+          <li>is_logged = true or false</li>
+          <li>user_id = User ID</li>
+          <li>success = success messages</li>
+          <li>error = errors messages</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header" role="tab" id="headingUpdateUserLastLogin">
+      <h5 class="mb-0">
+        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseUpdateUserLastLogin" aria-expanded="false" aria-controls="collapseUpdateUserLastLogin">Update User Last Login</a>
+      </h5>
+    </div>
+    <div id="collapseUpdateUserLastLogin" class="collapse" role="tabpanel" aria-labelledby="headingUpdateUserLastLogin">
+      <div class="card-body">
+        <strong>Endpoint:</strong> <?php echo $this->config['baseUrl']; ?>api/user-update<br>
+        <strong>Method:</strong> GET<br>
+        <strong>Parameter:</strong> <ul>
+          <li>user_id = Required. Example <?php echo $this->config['baseUrl']; ?>api/user-update?user_id=1</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header" role="tab" id="headingMessage">
+      <h5 class="mb-0">
+        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseMessage" aria-expanded="false" aria-controls="collapseMessage">Message Volunteer</a>
+      </h5>
+    </div>
+    <div id="collapseMessage" class="collapse" role="tabpanel" aria-labelledby="headingMessage">
+      <div class="card-body">
+        Not yet here
+      </div>
+    </div>
+  </div>
+</div>

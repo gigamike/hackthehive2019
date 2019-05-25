@@ -1,0 +1,196 @@
+<style>
+.center-img{
+	display:block;
+  margin:auto;
+}
+#map {
+  height: 400px;
+  width: 100%;
+}
+</style>
+<h1 class="mt-4 mb-3">Message
+  <small><?php echo $this->user->getFirstName(); ?> <?php echo $this->user->getLastName(); ?></small>
+</h1>
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">
+    <a href="<?php echo $this->url(); ?>">Home</a>
+  </li>
+  <li class="breadcrumb-item active">Message A Volunteer</li>
+</ol>
+
+<div class="row">
+
+  <!-- Post Content Column -->
+  <div class="col-lg-8">
+
+    <p><strong><?php echo $this->user->getFirstName(); ?> <?php echo $this->user->getLastName(); ?></strong> current location <?php echo $this->lastUserLocation->getCity(); ?>, <?php echo $this->lastUserLocation->getCountryName(); ?>.</p>
+
+    <center>
+      <div id="map"></div>
+      <script>
+        function initMap() {
+          var uluru = {lat: <?php echo $this->lastUserLocation->getLatitude(); ?>, lng: <?php echo $this->lastUserLocation->getLongitude(); ?>};
+          var map = new google.maps.Map(document.getElementById('map'), {
+            zoom: 8,
+            center: uluru
+          });
+          var marker = new google.maps.Marker({
+            position: uluru,
+            map: map
+          });
+        }
+      </script>
+      <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyChsiNQWInotqPZR4vJ5l6nZw61VquJY1k&callback=initMap" type="text/javascript"></script>
+    </center>
+
+    <!-- Comments Form -->
+    <div class="card my-4">
+      <h5 class="card-header">Message <?php echo $this->user->getFirstName(); ?> <?php echo $this->user->getLastName(); ?>:</h5>
+      <div class="card-body">
+        <?php
+          $flash = $this->flashMessenger();
+          $flash->setMessageOpenFormat('<div%s  role="alert">
+          ')
+          ->setMessageSeparatorString('')
+          ->setMessageCloseString('<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button></div>');
+          ?>
+        <div class="row">
+          <div class="col">
+          <?php
+          echo $flash->render('error',   array('alert', 'alert-dismissable fade show', 'alert-danger'));
+          echo $flash->render('info',    array('alert', 'alert-dismissable fade show', 'alert-info'));
+          echo $flash->render('default', array('alert', 'alert-dismissable fade show', 'alert-warning'));
+          echo $flash->render('success', array('alert', 'alert-dismissable fade show', 'alert-success'));
+          ?>
+          </div>
+        </div>
+        <?php if ($user = $this->identity()): ?>
+          <?php if ($user->role == 'ofw'): ?>
+            <?php
+            $form = $this->form;
+            $form->prepare();
+            $form->setAttributes(array(
+            					'method' => 'post',
+            					));
+            echo $this->form()->openTag($form);
+            ?>
+						<div class="form-group">
+	            <label for="message">From:</label>
+	              <input type="text" class="form-control" id="from" value="<?php echo $this->currentUser->getFirstName(); ?> <?php echo $this->currentUser->getLastName(); ?>" readonly>
+	          </div>
+						<div class="form-group">
+	            <label for="message">To:</label>
+	              <input type="text" class="form-control" id="to" value="<?php echo $this->user->getFirstName(); ?> <?php echo $this->user->getLastName(); ?>" readonly>
+	          </div>
+          <div class="form-group">
+            <?php echo $this->formLabel($form->get('message')); ?>
+              <?php echo $this->formTextarea($form->get('message')); ?>
+              <?php echo $this->formElementErrors($form->get('message')); ?>
+          </div>
+          <?php echo $this->formSubmit($form->get('submit')); ?>
+          <?php echo $this->form()->closeTag(); ?>
+
+					<hr>
+	 			 <h2 style="text-align: center; font-size: 24px; font-weight: bold; color: #51210d;">Or Download our App and call</a>
+	 			 <div class="row my-4">
+	 	       <div style="text-align: center;" class="col-lg-2">
+	 	       </div>
+	 	       <div style="text-align: center;" class="col-lg-4">
+	 	         <img src="/img/iosappstore.png" class="img-fluid">
+	 	       </div>
+	 	       <div style="text-align: center;" class="col-lg-4">
+	 	         <img src="/img/gplaybadge.png" class="img-fluid">
+	 	       </div>
+	 	       <div style="text-align: center;" class="col-lg-2">
+	 	       </div>
+	 	     </div>
+	 			 <div class="row my-4">
+	 	       <div class="col-lg-4">
+	 	         <a href="https://www.smartworld247.com/freebee" target="_blank"><img src="/img/l1.png" class="img-fluid"></a>
+	 	       </div>
+	 	       <div class="col-lg-4">
+	 	         <a href="https://www.smartworld247.com/freebee" target="_blank"><img src="/img/l2.png" class="img-fluid"></a>
+	 	       </div>
+	 	       <div class="col-lg-4">
+	 	         <a href="https://www.smartworld247.com/freebee" target="_blank"><img src="/img/l3.png" class="img-fluid"></a>
+	 	       </div>
+	 	     </div>
+
+        </form>
+        <?php else: ?>
+          <div class="alert alert-danger" role="alert">
+            You need to <a href="<?php echo $this->url('community', array('action' => 'volunteer',)); ?>" class="alert-link">login</a> or <a href="<?php echo $this->url('community', array('action' => 'ofw',)); ?>" class="alert-link">register</a> as OFW before you can message.
+          </div>
+       <?php endif; ?>
+     <?php else: ?>
+       <div class="alert alert-danger" role="alert">
+         You need to <a href="<?php echo $this->url('community', array('action' => 'volunteer',)); ?>" class="alert-link">login</a> or <a href="<?php echo $this->url('community', array('action' => 'ofw',)); ?>" class="alert-link">register</a> as OFW before you can message.
+       </div>
+			 <hr>
+			 <h2 style="text-align: center; font-size: 24px; font-weight: bold; color: #51210d;">Or Download our App and call</a>
+			 <div class="row my-4">
+	       <div style="text-align: center;" class="col-lg-2">
+	       </div>
+	       <div style="text-align: center;" class="col-lg-4">
+	         <img src="/img/iosappstore.png" class="img-fluid">
+	       </div>
+	       <div style="text-align: center;" class="col-lg-4">
+	         <img src="/img/gplaybadge.png" class="img-fluid">
+	       </div>
+	       <div style="text-align: center;" class="col-lg-2">
+	       </div>
+	     </div>
+			 <div class="row my-4">
+	       <div class="col-lg-4">
+	         <a href="https://www.smartworld247.com/freebee" target="_blank"><img src="/img/l1.png" class="img-fluid"></a>
+	       </div>
+	       <div class="col-lg-4">
+	         <a href="https://www.smartworld247.com/freebee" target="_blank"><img src="/img/l2.png" class="img-fluid"></a>
+	       </div>
+	       <div class="col-lg-4">
+	         <a href="https://www.smartworld247.com/freebee" target="_blank"><img src="/img/l3.png" class="img-fluid"></a>
+	       </div>
+	     </div>
+       <?php endif; ?>
+      </div>
+    </div>
+  </div>
+
+  <!-- Sidebar Widgets Column -->
+  <div class="col-md-4">
+
+    <!-- Search Widget -->
+    <div class="card mb-4">
+      <h5 class="card-header"><?php echo $this->user->getFirstName(); ?> <?php echo $this->user->getLastName(); ?>  <?php echo $this->online($this->user->getId()); ?></h5>
+      <div class="card-body">
+        <?php if($this->user->getProfilePic()): ?>
+        <?php $ext = pathinfo($this->user->getProfilePic(), PATHINFO_EXTENSION); ?>
+        <img class="img-fluid" src="/img/user/<?php echo $this->user->getId(); ?>/photo-750x450.<?php echo $ext; ?>" alt="<?php echo $this->user->getFirstName(); ?> <?php echo $this->user->getLastName(); ?>">
+        <?php else: ?>
+        <img class="img-fluid" src="http://placehold.it/200x200" alt="<?php echo $this->user->getFirstName(); ?> <?php echo $this->user->getLastName(); ?>">
+        <?php endif; ?>
+        <br><br>
+        <p class="text-center"><strong>Organization:</strong> <?php echo $this->organization->getOrganization(); ?></p>
+      </div>
+    </div>
+
+    <!-- Side Widget -->
+    <div class="card my-4">
+      <h5 class="card-header">Ads Here</h5>
+      <div class="card-body">
+        <h5>Free Bee PHONE-anza</h5>
+        <a href="#"><img class="img-fluid" src="/img/ads/ads1.jpg"></a><br><br>
+        <a href="#" class="btn btn-primary btn-sm">Learn More</a>
+        <br><br>
+        <h5>Sweet Success</h5>
+        <a href="#"><img class="img-fluid" src="/img/ads/ads2.jpg"></a><br><br>
+        <a href="#" class="btn btn-primary btn-sm">Learn More</a>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+<!-- /.row -->

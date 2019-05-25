@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.support.v7.widget.AppCompatButton;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -28,6 +29,7 @@ import com.squareup.picasso.Picasso;
 import org.apache.commons.lang3.StringUtils;
 
 import java.util.List;
+import java.util.Objects;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
@@ -41,6 +43,7 @@ public class ContactsListRecyclerViewAdapter extends RecyclerView.Adapter<Contac
     private final String USER_LIVE_NOTIFICATION_SESSION_COLLECTION = "UserLiveNotificationSession";
 
     public static class ContactListViewHolder extends RecyclerView.ViewHolder {
+        @InjectView(R.id.cardView_volunteer) CardView cardView_volunteer;
         @InjectView(R.id.imgVolunteerProfilePic) CircleImageView imgVolunteerProfilePic;
         @InjectView(R.id.lblVolunteerName) TextView lblVolunteerName;
         @InjectView(R.id.lblVolunteerOrganization) TextView lblVolunteerOrganization;
@@ -81,7 +84,17 @@ public class ContactsListRecyclerViewAdapter extends RecyclerView.Adapter<Contac
         sb.append(" ");
         sb.append(contactsDO.getLastname());
 
+<<<<<<< HEAD
+        FreeBeeApplication freeBeeApplication = (FreeBeeApplication) context.getApplicationContext();
 
+        if(freeBeeApplication.userRole.equals("ofw")){
+            viewHolder.lblVolunteerOrganization.setVisibility(View.GONE);
+        }else{
+            viewHolder.lblVolunteerOrganization.setVisibility(View.VISIBLE);
+        }
+=======
+
+>>>>>>> 2d934ebb82174c6a698a90eae22197bd7359b3fe
 
         viewHolder.lblVolunteerName.setText(sb.toString());
         viewHolder.lblVolunteerOrganization.setText(contactsDO.getOrganization());
@@ -97,6 +110,10 @@ public class ContactsListRecyclerViewAdapter extends RecyclerView.Adapter<Contac
         }
 
         Picasso.with(context).load(contactsDO.getProfilePic()).placeholder(R.drawable.no_image).into(viewHolder.imgVolunteerProfilePic);
+
+        viewHolder.cardView_volunteer.setOnClickListener(v -> {
+           // do task here
+        });
 
         viewHolder.btnTalkToMe.setOnClickListener(v -> {
 
@@ -127,8 +144,6 @@ public class ContactsListRecyclerViewAdapter extends RecyclerView.Adapter<Contac
                       DocumentSnapshot documentSnapshot = documentList.get(0);
 
                       if (!documentSnapshot.getBoolean("isOnCall")) {
-
-                          FreeBeeApplication freeBeeApplication = (FreeBeeApplication) context.getApplicationContext();
 
                           db.collection(USER_LIVE_NOTIFICATION_SESSION_COLLECTION)
                                   .document(freeBeeApplication.userId)

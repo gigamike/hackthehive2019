@@ -1258,11 +1258,14 @@ drawable ic_arrow_back_black_24dp
 drawable ic_arrow_drop_down_black_24dp
 drawable ic_arrow_drop_up_black_24dp
 drawable ic_bitcoin_logo
+drawable ic_call_black
+drawable ic_call_made_black
 drawable ic_clear_black_24dp
 drawable ic_credit_card
 drawable ic_dashboard_black_24dp
 drawable ic_exit_to_app
 drawable ic_expand_more_black_18dp
+drawable ic_group_black
 drawable ic_history_black_24dp
 drawable ic_home_black_24dp
 drawable ic_info
@@ -1485,6 +1488,7 @@ id chronometer
 id clear_btn
 id clip_horizontal
 id clip_vertical
+id coOfwRecyclerView
 id collapseActionView
 id contactItemCardView
 id contactNameTextView
@@ -1562,9 +1566,9 @@ id frmRegister_txtLastname
 id frmRegister_txtMiddleInitial
 id frmRegister_txtMobileNumber
 id frmRegister_txtPassword
+id frmSearch_cmbCountry
 id frmSearch_cmbOrganization
-id frmSearch_txtFirstname
-id frmSearch_txtLastname
+id frmSearch_txtCity
 id generateQRCodeProgressbar
 id ghost_view
 id gone
@@ -1600,6 +1604,7 @@ id largeLabel
 id launchWallet
 id lblAppName
 id lblCity
+id lblCoOFW
 id lblCountry
 id lblFullname
 id lblMobileNo
@@ -1631,6 +1636,7 @@ id multiply
 id my_recycler_view
 id navigation
 id navigation_call
+id navigation_co_ofw
 id navigation_contacts
 id navigation_header_container
 id navigation_history
@@ -1856,7 +1862,6 @@ layout activity_invoice
 layout activity_login
 layout activity_ofw
 layout activity_profile
-layout activity_search_record
 layout activity_video_call
 layout activity_view_other_profile
 layout activity_volunteer
@@ -1893,6 +1898,7 @@ layout dialpad_key_zero
 layout dialpad_view
 layout dialpad_view_unthemed
 layout floating_search_layout
+layout fragment_co_ofw
 layout history_fragment
 layout history_layout_list_item
 layout mtrl_layout_snackbar
@@ -2022,6 +2028,7 @@ string google_api_key
 string google_app_id
 string google_crash_reporting_api_key
 string google_storage_bucket
+string hello_blank_fragment
 string hide_bottom_view_on_scroll_behavior
 string mtrl_chip_close_icon_content_description
 string nav_header_desc
@@ -2044,6 +2051,7 @@ string title_activity_home_screen
 string title_activity_main
 string title_activity_payment
 string title_call
+string title_co_ofw
 string title_contacts
 string title_dashboard
 string title_history

@@ -2490,6 +2490,7 @@
     <string name="google_app_id" translatable="false">1:174163563250:android:1ceb6f439d84c069</string>
     <string name="google_crash_reporting_api_key" translatable="false">AIzaSyAMpf7v2tUyCTIS98kZdEvWGXZpBGwjess</string>
     <string name="google_storage_bucket" translatable="false">freebee-13ab7.appspot.com</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="hide_bottom_view_on_scroll_behavior" translatable="false">android.support.design.behavior.HideBottomViewOnScrollBehavior</string>
     <string name="mtrl_chip_close_icon_content_description">Remove %1$s</string>
     <string name="nav_header_desc">Navigation header</string>
@@ -2512,6 +2513,7 @@
     <string name="title_activity_main">MainActivity</string>
     <string name="title_activity_payment">PaymentActivity</string>
     <string name="title_call">Call</string>
+    <string name="title_co_ofw">co-OFW</string>
     <string name="title_contacts">Community</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_history">History</string>

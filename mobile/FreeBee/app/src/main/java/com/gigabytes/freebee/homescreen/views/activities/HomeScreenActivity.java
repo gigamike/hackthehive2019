@@ -24,6 +24,7 @@ import com.gigabytes.freebee.FreeBeeApplication;
 import com.gigabytes.freebee.R;
 import com.gigabytes.freebee.homescreen.views.adapters.HomeScreenViewPagerAdapter;
 import com.gigabytes.freebee.homescreen.views.fragments.CallFragment;
+import com.gigabytes.freebee.homescreen.views.fragments.CoOfwFragment;
 import com.gigabytes.freebee.homescreen.views.fragments.ContactsFragment;
 import com.gigabytes.freebee.homescreen.views.fragments.HistoryFragment;
 import com.gigabytes.freebee.homescreen.views.model.ContactsAPI;
@@ -225,11 +226,14 @@ public class HomeScreenActivity extends AppCompatActivity {
                 case R.id.navigation_contacts:
                     viewPager.setCurrentItem(0);
                     return true;
-                case R.id.navigation_call:
+                case R.id.navigation_co_ofw:
                     viewPager.setCurrentItem(1);
                     return true;
-                case R.id.navigation_history:
+                case R.id.navigation_call:
                     viewPager.setCurrentItem(2);
+                    return true;
+                case R.id.navigation_history:
+                    viewPager.setCurrentItem(3);
                     return true;
             }
             return false;
@@ -308,6 +312,7 @@ public class HomeScreenActivity extends AppCompatActivity {
         HomeScreenViewPagerAdapter adapter = new HomeScreenViewPagerAdapter(getSupportFragmentManager());
 
         adapter.addFragment(ContactsFragment.createInstance());
+        adapter.addFragment(CoOfwFragment.createInstance());
         adapter.addFragment(CallFragment.createInstance());
         adapter.addFragment(HistoryFragment.createInstance());
 

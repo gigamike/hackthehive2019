@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -18,17 +19,25 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreSettings;
 import com.squareup.picasso.Picasso;
 
+import org.apache.commons.lang3.StringUtils;
+
 import java.util.Objects;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
+import de.hdodenhof.circleimageview.CircleImageView;
 
 public class ProfileActivity extends AppCompatActivity {
     @InjectView(R.id.lblFullname) TextView lblFullname;
-    @InjectView(R.id.imgProfilePic) ImageView imgProfilePic;
+    @InjectView(R.id.imgProfilePic) CircleImageView imgProfilePic;
     @InjectView(R.id.btnBuyCredits) LinearLayout btnBuyCredits;
     @InjectView(R.id.btnAbout) LinearLayout btnAbout;
     @InjectView(R.id.btnLogout) LinearLayout btnLogout;
+    @InjectView(R.id.lblOrganization) TextView lblOrganization;
+    @InjectView(R.id.lblCity) TextView lblCity;
+    @InjectView(R.id.lblCountry) TextView lblCountry;
+    @InjectView(R.id.lblMobileNo) TextView lblMobileNo;
+    @InjectView(R.id.buttonBackbutton) ImageButton buttonBackbutton;
 
     private final String USER_LIVE_NOTIFICATION_SESSION_COLLECTION = "UserLiveNotificationSession";
 
@@ -71,6 +80,20 @@ public class ProfileActivity extends AppCompatActivity {
         lblFullname.setText(freeBeeApplication.fullName);
         Picasso.with(getApplicationContext()).load(Objects.requireNonNull(freeBeeApplication).userPictureURL).placeholder(R.drawable.no_image).into(imgProfilePic);
 
+        lblOrganization.setText(freeBeeApplication.organization);
+        lblCity.setText(freeBeeApplication.city);
+        lblCountry.setText(freeBeeApplication.country);
+
+        if (StringUtils.isBlank(freeBeeApplication.mobileNumber)) {
+            lblMobileNo.setText("N/A");
+        } else {
+            lblMobileNo.setText(freeBeeApplication.mobileNumber);
+        }
+
+        buttonBackbutton.setOnClickListener(v -> {
+            finish();
+        });
+
         btnBuyCredits.setOnClickListener(v -> {
             Intent creditsActivityIntent = new Intent(this, CreditsActivity.class);
             startActivity(creditsActivityIntent);
@@ -85,7 +108,7 @@ public class ProfileActivity extends AppCompatActivity {
 
     public void showLogoutPrompt(String title, String message) {
         FreeBeeApplication freeBeeApplication = (FreeBeeApplication) getApplication();
-        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this, R.style.Theme_AppCompat_DayNight_Dialog_Alert);
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
         alertDialogBuilder.setTitle(title);
 
         alertDialogBuilder

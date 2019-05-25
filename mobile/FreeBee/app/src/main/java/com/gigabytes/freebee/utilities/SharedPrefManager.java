@@ -20,12 +20,10 @@ public class SharedPrefManager {
     private static final String USER_PICTURE_URL = "USER_PICTURE_URL";
     private static final String FULL_NAME = "FULL_NAME";
 
-//    freeBeeApplication.fullName = volunteers.getFirstName() + " " + volunteers.getMiddleName() + " " +  volunteers.getLastName();
-//    freeBeeApplication.isLogin = volunteers.isOnline();
-//    freeBeeApplication.userId = volunteers.getId();
-//    freeBeeApplication.userRole = Roles.VOLUNTEER;
-//    freeBeeApplication.userPictureURL = volunteers.getProfilePic();
-
+    private static final String ORGANIZATION = "ORGANIZATION";
+    private static final String CITY = "CITY";
+    private static final String COUNTRY = "COUNTRY";
+    private static final String MOBILE_NUMBER = "MOBILE_NUMBER";
 
     public SharedPrefManager(Context context) {
         mContext = context;
@@ -49,6 +47,11 @@ public class SharedPrefManager {
         editor.putString(USER_ROLE, freeBeeApplication.userRole);
         editor.putString(FULL_NAME, freeBeeApplication.fullName);
         editor.putString(USER_PICTURE_URL, freeBeeApplication.userPictureURL);
+
+        editor.putString(ORGANIZATION, freeBeeApplication.organization);
+        editor.putString(CITY, freeBeeApplication.city);
+        editor.putString(COUNTRY, freeBeeApplication.country);
+        editor.putString(MOBILE_NUMBER, freeBeeApplication.mobileNumber);
 
         editor.apply();
 
@@ -94,5 +97,25 @@ public class SharedPrefManager {
     public String getUserProfilePic() {
         SharedPreferences sharedPreferences = mContext.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
         return sharedPreferences.getString(USER_PICTURE_URL,null);
+    }
+
+    public String getOrganization() {
+        SharedPreferences sharedPreferences = mContext.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
+        return sharedPreferences.getString(ORGANIZATION,null);
+    }
+
+    public String getCity() {
+        SharedPreferences sharedPreferences = mContext.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
+        return sharedPreferences.getString(CITY,null);
+    }
+
+    public String getCountry() {
+        SharedPreferences sharedPreferences = mContext.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
+        return sharedPreferences.getString(COUNTRY,null);
+    }
+
+    public String getMobileNumber() {
+        SharedPreferences sharedPreferences = mContext.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
+        return sharedPreferences.getString(MOBILE_NUMBER,null);
     }
 }

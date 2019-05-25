@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Users\user\Documents\Programming\Hackathon_Projects\hackthehive2019\mobile\FreeBee\app\src\main\AndroidManifest.xml:2:1-73:12
-INJECTED from C:\Users\user\Documents\Programming\Hackathon_Projects\hackthehive2019\mobile\FreeBee\app\src\main\AndroidManifest.xml:2:1-73:12
-INJECTED from C:\Users\user\Documents\Programming\Hackathon_Projects\hackthehive2019\mobile\FreeBee\app\src\main\AndroidManifest.xml:2:1-73:12
-INJECTED from C:\Users\user\Documents\Programming\Hackathon_Projects\hackthehive2019\mobile\FreeBee\app\src\main\AndroidManifest.xml:2:1-73:12
+ADDED from C:\Users\user\Documents\Programming\Hackathon_Projects\hackthehive2019\mobile\FreeBee\app\src\main\AndroidManifest.xml:2:1-74:12
+INJECTED from C:\Users\user\Documents\Programming\Hackathon_Projects\hackthehive2019\mobile\FreeBee\app\src\main\AndroidManifest.xml:2:1-74:12
+INJECTED from C:\Users\user\Documents\Programming\Hackathon_Projects\hackthehive2019\mobile\FreeBee\app\src\main\AndroidManifest.xml:2:1-74:12
+INJECTED from C:\Users\user\Documents\Programming\Hackathon_Projects\hackthehive2019\mobile\FreeBee\app\src\main\AndroidManifest.xml:2:1-74:12
 MERGED from [com.android.databinding:adapters:3.2.1] C:\Users\user\.gradle\caches\transforms-1\files-1.1\adapters-3.2.1.aar\25a82dbf74a057ecc50974f49938035b\AndroidManifest.xml:17:1-24:12
 MERGED from [com.android.databinding:library:3.2.1] C:\Users\user\.gradle\caches\transforms-1\files-1.1\library-3.2.1.aar\99e665b4b4bb80e37edfec2c24cba2c4\AndroidManifest.xml:17:1-24:12
 MERGED from [com.github.arimorty:floatingsearchview:2.1.1] C:\Users\user\.gradle\caches\transforms-1\files-1.1\floatingsearchview-2.1.1.aar\f07eb7355608b107d3ddfee3e801c9c5\AndroidManifest.xml:2:1-14:12
@@ -77,20 +77,20 @@ MERGED from [com.android.support:interpolator:28.0.0] C:\Users\user\.gradle\cach
 MERGED from [com.google.firebase:firebase-database-collection:16.0.1] C:\Users\user\.gradle\caches\transforms-1\files-1.1\firebase-database-collection-16.0.1.aar\64fa507303fe212c78b51f01ae888578\AndroidManifest.xml:2:1-7:12
 MERGED from [com.google.firebase:protolite-well-known-types:16.0.1] C:\Users\user\.gradle\caches\transforms-1\files-1.1\protolite-well-known-types-16.0.1.aar\ad9e33cad3d6a21af3b3ad2862e2fa49\AndroidManifest.xml:2:1-11:12
 MERGED from [io.grpc:grpc-android:1.16.1] C:\Users\user\.gradle\caches\transforms-1\files-1.1\grpc-android-1.16.1.aar\0531a2fa3ed752a87b22d9893356d9bf\AndroidManifest.xml:2:1-13:12
-INJECTED from C:\Users\user\Documents\Programming\Hackathon_Projects\hackthehive2019\mobile\FreeBee\app\src\main\AndroidManifest.xml:2:1-73:12
-INJECTED from C:\Users\user\Documents\Programming\Hackathon_Projects\hackthehive2019\mobile\FreeBee\app\src\main\AndroidManifest.xml:2:1-73:12
-INJECTED from C:\Users\user\Documents\Programming\Hackathon_Projects\hackthehive2019\mobile\FreeBee\app\src\main\AndroidManifest.xml:2:1-73:12
+INJECTED from C:\Users\user\Documents\Programming\Hackathon_Projects\hackthehive2019\mobile\FreeBee\app\src\main\AndroidManifest.xml:2:1-74:12
+INJECTED from C:\Users\user\Documents\Programming\Hackathon_Projects\hackthehive2019\mobile\FreeBee\app\src\main\AndroidManifest.xml:2:1-74:12
+INJECTED from C:\Users\user\Documents\Programming\Hackathon_Projects\hackthehive2019\mobile\FreeBee\app\src\main\AndroidManifest.xml:2:1-74:12
 	package
 		ADDED from C:\Users\user\Documents\Programming\Hackathon_Projects\hackthehive2019\mobile\FreeBee\app\src\main\AndroidManifest.xml:3:5-36
 		INJECTED from C:\Users\user\Documents\Programming\Hackathon_Projects\hackthehive2019\mobile\FreeBee\app\src\main\AndroidManifest.xml
 		INJECTED from C:\Users\user\Documents\Programming\Hackathon_Projects\hackthehive2019\mobile\FreeBee\app\src\main\AndroidManifest.xml
 	android:versionName
 		INJECTED from C:\Users\user\Documents\Programming\Hackathon_Projects\hackthehive2019\mobile\FreeBee\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\user\Documents\Programming\Hackathon_Projects\hackthehive2019\mobile\FreeBee\app\src\main\AndroidManifest.xml:2:1-73:12
+		ADDED from C:\Users\user\Documents\Programming\Hackathon_Projects\hackthehive2019\mobile\FreeBee\app\src\main\AndroidManifest.xml:2:1-74:12
 		INJECTED from C:\Users\user\Documents\Programming\Hackathon_Projects\hackthehive2019\mobile\FreeBee\app\src\main\AndroidManifest.xml
 	android:versionCode
 		INJECTED from C:\Users\user\Documents\Programming\Hackathon_Projects\hackthehive2019\mobile\FreeBee\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\user\Documents\Programming\Hackathon_Projects\hackthehive2019\mobile\FreeBee\app\src\main\AndroidManifest.xml:2:1-73:12
+		ADDED from C:\Users\user\Documents\Programming\Hackathon_Projects\hackthehive2019\mobile\FreeBee\app\src\main\AndroidManifest.xml:2:1-74:12
 		INJECTED from C:\Users\user\Documents\Programming\Hackathon_Projects\hackthehive2019\mobile\FreeBee\app\src\main\AndroidManifest.xml
 	xmlns:android
 		ADDED from C:\Users\user\Documents\Programming\Hackathon_Projects\hackthehive2019\mobile\FreeBee\app\src\main\AndroidManifest.xml:2:11-69
@@ -139,7 +139,7 @@ ADDED from C:\Users\user\Documents\Programming\Hackathon_Projects\hackthehive201
 	android:name
 		ADDED from C:\Users\user\Documents\Programming\Hackathon_Projects\hackthehive2019\mobile\FreeBee\app\src\main\AndroidManifest.xml:10:22-66
 application
-ADDED from C:\Users\user\Documents\Programming\Hackathon_Projects\hackthehive2019\mobile\FreeBee\app\src\main\AndroidManifest.xml:12:5-71:19
+ADDED from C:\Users\user\Documents\Programming\Hackathon_Projects\hackthehive2019\mobile\FreeBee\app\src\main\AndroidManifest.xml:12:5-72:19
 MERGED from [com.github.arimorty:floatingsearchview:2.1.1] C:\Users\user\.gradle\caches\transforms-1\files-1.1\floatingsearchview-2.1.1.aar\f07eb7355608b107d3ddfee3e801c9c5\AndroidManifest.xml:12:5-20
 MERGED from [com.github.arimorty:floatingsearchview:2.1.1] C:\Users\user\.gradle\caches\transforms-1\files-1.1\floatingsearchview-2.1.1.aar\f07eb7355608b107d3ddfee3e801c9c5\AndroidManifest.xml:12:5-20
 MERGED from [im.dlg:android-dialer:1.2.5] C:\Users\user\.gradle\caches\transforms-1\files-1.1\android-dialer-1.2.5.aar\dc190a5d4b4d01f8ed5f27bf51dc385b\AndroidManifest.xml:11:5-13:19
@@ -311,13 +311,17 @@ ADDED from C:\Users\user\Documents\Programming\Hackathon_Projects\hackthehive201
 	android:name
 		ADDED from C:\Users\user\Documents\Programming\Hackathon_Projects\hackthehive2019\mobile\FreeBee\app\src\main\AndroidManifest.xml:64:13-50
 activity#com.gigabytes.freebee.homescreen.views.activities.DialerActivity
-ADDED from C:\Users\user\Documents\Programming\Hackathon_Projects\hackthehive2019\mobile\FreeBee\app\src\main\AndroidManifest.xml:67:9-70:56
+ADDED from C:\Users\user\Documents\Programming\Hackathon_Projects\hackthehive2019\mobile\FreeBee\app\src\main\AndroidManifest.xml:67:9-70:47
 	android:label
 		ADDED from C:\Users\user\Documents\Programming\Hackathon_Projects\hackthehive2019\mobile\FreeBee\app\src\main\AndroidManifest.xml:69:13-58
 	android:theme
 		ADDED from C:\Users\user\Documents\Programming\Hackathon_Projects\hackthehive2019\mobile\FreeBee\app\src\main\AndroidManifest.xml:70:13-44
 	android:name
 		ADDED from C:\Users\user\Documents\Programming\Hackathon_Projects\hackthehive2019\mobile\FreeBee\app\src\main\AndroidManifest.xml:68:13-71
+activity#com.gigabytes.freebee.homescreen.views.activities.ViewOtherProfileActivity
+ADDED from C:\Users\user\Documents\Programming\Hackathon_Projects\hackthehive2019\mobile\FreeBee\app\src\main\AndroidManifest.xml:71:9-99
+	android:name
+		ADDED from C:\Users\user\Documents\Programming\Hackathon_Projects\hackthehive2019\mobile\FreeBee\app\src\main\AndroidManifest.xml:71:19-87
 uses-sdk
 INJECTED from C:\Users\user\Documents\Programming\Hackathon_Projects\hackthehive2019\mobile\FreeBee\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from C:\Users\user\Documents\Programming\Hackathon_Projects\hackthehive2019\mobile\FreeBee\app\src\main\AndroidManifest.xml

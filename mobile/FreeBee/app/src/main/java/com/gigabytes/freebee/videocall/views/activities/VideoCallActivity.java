@@ -108,6 +108,8 @@ public class VideoCallActivity extends AppCompatActivity implements Session.Sess
 
     private Handler callDurationTimeoutHandler;
 
+    private boolean isPermissionOngoing = false;
+
     private BroadcastReceiver rejectCallBroadcastReceiver = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
@@ -587,7 +589,16 @@ public class VideoCallActivity extends AppCompatActivity implements Session.Sess
                                                                                       .document(documentIsCallInitializedId)
                                                                                       .update("sessionRoomName", encryptedSessionRoomName,
                                                                                               "isCallInitialized", true);
+
+                                                                              apiKey = openTokSessionResponse.getApiKey();
+                                                                              sessionId = openTokSessionResponse.getSessionId();
+                                                                              token = openTokSessionResponse.getToken();
+
+                                                                              Log.d("debug", "SESSION " + openTokSessionResponse);
+
+                                                                              requestPermissions();
                                                                           });
+
                                                               }
                                                           }
 
@@ -595,11 +606,6 @@ public class VideoCallActivity extends AppCompatActivity implements Session.Sess
 
                                                 });
 
-                                        apiKey = openTokSessionResponse.getApiKey();
-                                        sessionId = openTokSessionResponse.getSessionId();
-                                        token = openTokSessionResponse.getToken();
-
-                                        requestPermissions();
                                     }
 
                                     @Override
@@ -708,7 +714,9 @@ public class VideoCallActivity extends AppCompatActivity implements Session.Sess
         LocalBroadcastManager.getInstance(this).unregisterReceiver(rejectCallBroadcastReceiver);
         Intent videoCallActivityIntent = getIntent();
 
-        if(isCalling) {
+        Log.d("debug", "is calling " + isCalling);
+
+        if(isCalling && !isPermissionOngoing) {
             if(videoCallActivityIntent.getStringExtra(USER_CALL_ROLE).equals(USER_CALLER)) {
                 stopCallerSound();
                 callerRejectCall();
@@ -813,6 +821,7 @@ public class VideoCallActivity extends AppCompatActivity implements Session.Sess
               .addOnSuccessListener(command -> {
                   boolean isOnCall = command.getBoolean("isOnCall");
                   if (isOnCall) {
+                      Log.d("debug", "user is on call");
                       db.collection("UserLiveNotificationSession")
                               .document(callerDocumentId)
                               .collection("IsCallAcceptedListener")
@@ -829,6 +838,8 @@ public class VideoCallActivity extends AppCompatActivity implements Session.Sess
                                                   "calleeId", userid);
                               });
                   } else {
+
+                      Log.d("debug", "user is not on call");
                       isCalling = false;
                       callDurationTimeoutHandler.removeCallbacksAndMessages(null);
                       stopCalleeSound();
@@ -915,8 +926,12 @@ public class VideoCallActivity extends AppCompatActivity implements Session.Sess
             userSession.setSessionListener(this);
             userSession.connect(token);
 
+            Log.d("debug", "PERMISSION GRANTED");
+
         }
         else {
+            Log.d("debug", "REQUIRED PERMISSION");
+            isPermissionOngoing = true;
             EasyPermissions.requestPermissions(this, "This app needs access to your camera and mic to make video calls", RC_VIDEO_APP_PERM, perms);
         }
     }
@@ -1013,12 +1028,15 @@ public class VideoCallActivity extends AppCompatActivity implements Session.Sess
 
     @Override
     public void onPermissionsGranted(int requestCode, List<String> perms) {
-
+        isPermissionOngoing = false;
     }
 
     @Override
     public void onPermissionsDenied(int requestCode, List<String> perms) {
         Intent videoCallActivityIntent = getIntent();
+
+
+        Log.d("debug", "permission denied");
 
         if(videoCallActivityIntent.getStringExtra(USER_CALL_ROLE).equals(USER_CALLER)) {
             callerRejectCall();

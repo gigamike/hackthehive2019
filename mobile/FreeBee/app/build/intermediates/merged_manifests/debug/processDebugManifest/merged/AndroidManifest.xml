@@ -109,6 +109,7 @@
             android:name="com.gigabytes.freebee.homescreen.views.activities.DialerActivity"
             android:label="@string/title_activity_dialer"
             android:theme="@style/AppTheme" />
+        <activity android:name="com.gigabytes.freebee.homescreen.views.activities.ViewOtherProfileActivity" />
         <activity android:name="im.dlg.dialer.DialpadActivity" />
 
         <service

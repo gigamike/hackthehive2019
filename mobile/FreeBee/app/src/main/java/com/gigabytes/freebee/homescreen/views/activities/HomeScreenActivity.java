@@ -283,6 +283,10 @@ public class HomeScreenActivity extends AppCompatActivity {
             freeBeeApplication.fullName = SharedPrefManager.getInstance(this).getUserFullname();
             freeBeeApplication.userPictureURL = SharedPrefManager.getInstance(this).getUserProfilePic();
             freeBeeApplication.email = SharedPrefManager.getInstance(this).getEmailAddress();
+            freeBeeApplication.organization = SharedPrefManager.getInstance(this).getOrganization();
+            freeBeeApplication.city = SharedPrefManager.getInstance(this).getCity();
+            freeBeeApplication.country = SharedPrefManager.getInstance(this).getCountry();
+            freeBeeApplication.mobileNumber = SharedPrefManager.getInstance(this).getMobileNumber();
 
             updateOnCallState(freeBeeApplication.userId);
 

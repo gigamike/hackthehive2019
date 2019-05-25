@@ -1,0 +1,46 @@
+.navbar,footer {
+  background: #fff url(/img/header-bg.jpg) no-repeat;
+}
+.navbar-dark .navbar-nav .nav-link, footer p{
+  color: #51210d;
+}
+body {
+  color: #777777;
+}
+.card-header{
+  color: #51210d;
+}
+.btn-primary{
+  background-color: #f99f15;
+  border-color: #f99f15;
+}
+.btn-primary:hover{
+  background-color: #51210d;
+}
+a{
+  color: #51210d;
+}
+.page-item.active .page-link{
+  background-color: #f99f15;
+  border-color: #f99f15;
+}
+h5{
+  text-align: left; font-size: 18px; font-weight: bold; color: #51210d;
+}
+.jumbotron {
+    padding: 0.5rem;
+}
+.online{
+	color:#00B200;
+	font-size:12px;
+}
+.offline{
+	color:#F00;
+	font-size:12px;
+}
+.features{
+  list-style-type: none;
+}
+.features li{
+  margin-bottom: 25px;
+}

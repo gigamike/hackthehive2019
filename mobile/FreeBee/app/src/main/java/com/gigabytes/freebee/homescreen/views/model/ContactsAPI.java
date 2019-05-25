@@ -12,17 +12,17 @@ public interface ContactsAPI {
 
     @GET("volunteers")
     Call<VolunteerResponse> getSearchedVolunteer(
-            @Query("organization_id") Integer organization,
-            @Query("first_name_keyword") String firstName,
-            @Query("last_name_keyword") String lastname);
+            @Query("organization_id") int organization,
+            @Query("country_code") String countryCode,
+            @Query("city_keyword") String city);
 
     @GET("ofws")
     Call<OFWResponse> getAllOFW();
 
     @GET("ofws")
     Call<OFWResponse> getSearchedOFW(
-            @Query("first_name_keyword") String firstName,
-            @Query("last_name_keyword") String lastname);
+            @Query("country_code") String countryCode,
+            @Query("city_keyword") String city);
 
     @GET("user-update")
     Call<Void> updateUserLastLogin(@Query("user_id") Integer userId);

@@ -28,9 +28,12 @@ import com.gigabytes.freebee.homescreen.views.model.ContactsDO;
 import com.gigabytes.freebee.homescreen.views.model.VolunteerResponse;
 import com.gigabytes.freebee.login.models.OFW;
 import com.gigabytes.freebee.login.models.OFWResponse;
+import com.gigabytes.freebee.registration.models.Countries;
+import com.gigabytes.freebee.registration.models.CountriesResponse;
 import com.gigabytes.freebee.registration.models.Organizations;
 import com.gigabytes.freebee.registration.models.OrganizationsResponse;
 import com.gigabytes.freebee.registration.models.RegistrationAPI;
+import com.gigabytes.freebee.registration.views.VolunteerActivity;
 import com.squareup.picasso.Picasso;
 import com.weiwangcn.betterspinner.library.material.MaterialBetterSpinner;
 
@@ -52,16 +55,18 @@ public class ContactsFragment extends Fragment {
     @InjectView(R.id.my_recycler_view) RecyclerView recyclerView;
 
     @InjectView(R.id.frmSearch_cmbOrganization) MaterialBetterSpinner frmSearch_cmbOrganization;
-    @InjectView(R.id.frmSearch_txtFirstname) EditText frmSearch_txtFirstname;
-    @InjectView(R.id.frmSearch_txtLastname) EditText frmSearch_txtLastname;
+    @InjectView(R.id.frmSearch_cmbCountry) MaterialBetterSpinner frmSearch_cmbCountry;
+    @InjectView(R.id.frmSearch_txtCity) EditText frmSearch_txtCity;
     @InjectView(R.id.btnSearch) AppCompatButton btnSearch;
 
     Retrofit retrofit;
 
     ArrayList<Organizations> organizationsList;
+    ArrayList<Countries> countriesList;
+
     List<ContactsDO> contactsDOList;
 
-    String firstname,lastname;
+    String city, countryCode;
     Integer organizationID;
 
     public static ContactsFragment createInstance() {
@@ -89,6 +94,8 @@ public class ContactsFragment extends Fragment {
 
         FreeBeeApplication freeBeeApplication = (FreeBeeApplication) Objects.requireNonNull(getActivity()).getApplication();
         organizationsList = new ArrayList<>();
+        countriesList = new ArrayList<>();
+
         contactsDOList = new ArrayList<>();
         retrofit = new Retrofit.Builder()
                 .baseUrl("https://hackthehive2019.gigamike.net/api/")
@@ -114,8 +121,7 @@ public class ContactsFragment extends Fragment {
         progressDialog.setCancelable(false);
 
         btnSearch.setOnClickListener(v -> {
-            firstname = frmSearch_txtFirstname.getText().toString().trim();
-            lastname = frmSearch_txtLastname.getText().toString().trim();
+            city = frmSearch_txtCity.getText().toString().trim() == null ? "" : frmSearch_txtCity.getText().toString().trim();
 
             switch (freeBeeApplication.userRole){
                 case "ofw":
@@ -125,15 +131,10 @@ public class ContactsFragment extends Fragment {
                     searchOFW();
                     break;
             }
-
         });
 
         loadOrganizations();
-
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("https://hackthehive2019.gigamike.net/api/")
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
+        loadCountries();
 
         ContactsAPI contactsAPI = retrofit.create(ContactsAPI.class);
         if (freeBeeApplication.userRole.equals("volunteer")) {
@@ -151,25 +152,25 @@ public class ContactsFragment extends Fragment {
 
                     for (OFW ofw : ofwList) {
 
-                        ContactsDO contactsDO = new ContactsDO(ofw.getId(),
-                                                               ofw.getFirstName(),
-                                                               ofw.getMiddleName(),
-                                                               ofw.getLastName(),
-                                                               ofw.getOrganization(),
-                                                               ofw.getProfilePic(),
-                                                               ofw.getCountry(),
-                                                               ofw.getCity(),
-                                                               ofw.isOnline(),
-                                                               ofw.getDistance(),
-                                                               ofw.getMobileNumber());
+                        ContactsDO contactsDO = new ContactsDO(
+                                ofw.getId(),
+                                ofw.getFirstName(),
+                                ofw.getMiddleName(),
+                                ofw.getLastName(),
+                                ofw.getOrganization(),
+                                ofw.getProfilePic(),
+                                ofw.getCountry(),
+                                ofw.getCity(),
+                                ofw.isOnline(),
+                                ofw.getDistance(),
+                                ofw.getMobileNumber()
+                        );
 
                         contactsDOList.add(contactsDO);
                         Log.d("debug","contact " + contactsDO);
-
                     }
 
                     recyclerView.setAdapter(new ContactsListRecyclerViewAdapter(contactsDOList, getContext()));
-
                 }
 
                 @Override
@@ -245,22 +246,48 @@ public class ContactsFragment extends Fragment {
                 }
 
                 frmSearch_cmbOrganization.setAdapter(new ArrayAdapter<>(getContext(), android.R.layout.simple_spinner_dropdown_item, organizationsList));
-                frmSearch_cmbOrganization.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-                    @Override
-                    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                        organizationID = organizationsList.get(position).getOrgId();
-                        Log.e("debug", "Selected: " + organizationID);
-                    }
-
-                    @Override
-                    public void onNothingSelected(AdapterView<?> parent) {
-
-                    }
+                frmSearch_cmbOrganization.setOnItemClickListener((parent, view, position, id) -> {
+                    organizationID = organizationsList.get(position).getOrgId();
+                    Log.d("debug", "Selected: " + organizationID);
                 });
             }
 
             @Override
             public void onFailure(Call<List<OrganizationsResponse>> call, Throwable t) {
+                progressDialog.dismiss();
+                Log.e("error", t.getMessage());
+            }
+        });
+    }
+
+    private void loadCountries(){
+        ProgressDialog progressDialog = new ProgressDialog(getContext());
+        progressDialog.setIndeterminate(true);
+        progressDialog.setMessage("Loading countries...");
+        progressDialog.setCancelable(false);
+        progressDialog.show();
+
+        RegistrationAPI registrationAPI = retrofit.create(RegistrationAPI.class);
+        registrationAPI.getAllCountries().enqueue(new Callback<List<CountriesResponse>>() {
+            @Override
+            public void onResponse(Call<List<CountriesResponse>> call, Response<List<CountriesResponse>> response) {
+                progressDialog.dismiss();
+                List<CountriesResponse> responseCountries = response.body();
+
+                for(CountriesResponse country : Objects.requireNonNull(responseCountries)){
+                    Countries countries = new Countries(country.getId(), country.getCountryCode(), country.getCountryName());
+                    countriesList.add(countries);
+                }
+
+                frmSearch_cmbCountry.setAdapter(new ArrayAdapter<>(getContext(), android.R.layout.simple_spinner_dropdown_item, countriesList));
+                frmSearch_cmbCountry.setOnItemClickListener((parent, view, position, id) -> {
+                    countryCode = countriesList.get(position).getCountryCode();
+                    Log.d("debug", "Selected: " + countryCode);
+                });
+            }
+
+            @Override
+            public void onFailure(Call<List<CountriesResponse>> call, Throwable t) {
                 progressDialog.dismiss();
                 Log.e("error", t.getMessage());
             }
@@ -275,7 +302,12 @@ public class ContactsFragment extends Fragment {
         progressDialog.show();
 
         ContactsAPI contactsAPI = retrofit.create(ContactsAPI.class);
-        contactsAPI.getSearchedVolunteer(organizationID,firstname,lastname).enqueue(new Callback<VolunteerResponse>() {
+
+        Log.d("debug", "organizationID: " + organizationID);
+        Log.d("debug", "countryCode: " + countryCode);
+        Log.d("debug", "city: " + city);
+
+        contactsAPI.getSearchedVolunteer(organizationID, countryCode, city).enqueue(new Callback<VolunteerResponse>() {
             @Override
             public void onResponse(Call<VolunteerResponse> call, Response<VolunteerResponse> response) {
                 progressDialog.dismiss();
@@ -320,7 +352,7 @@ public class ContactsFragment extends Fragment {
         progressDialog.show();
 
         ContactsAPI contactsAPI = retrofit.create(ContactsAPI.class);
-        contactsAPI.getSearchedOFW(firstname,lastname).enqueue(new Callback<OFWResponse>() {
+        contactsAPI.getSearchedOFW(countryCode, city).enqueue(new Callback<OFWResponse>() {
             @Override
             public void onResponse(Call<OFWResponse> call, Response<OFWResponse> response) {
                 progressDialog.dismiss();

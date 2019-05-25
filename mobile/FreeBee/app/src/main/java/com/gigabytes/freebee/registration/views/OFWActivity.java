@@ -129,7 +129,7 @@ public class OFWActivity extends AppCompatActivity {
                 List<CountriesResponse> responseCountries = response.body();
 
                 for(CountriesResponse country : Objects.requireNonNull(responseCountries)){
-                    Countries countries = new Countries(country.getId(),country.getCountryName());
+                    Countries countries = new Countries(country.getId(), country.getCountryCode(), country.getCountryName());
                     countriesList.add(countries);
                 }
 

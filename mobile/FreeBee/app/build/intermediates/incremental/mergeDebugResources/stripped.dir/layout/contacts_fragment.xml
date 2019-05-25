@@ -88,7 +88,17 @@
                     android:id="@+id/frmSearch_cmbOrganization"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Organization"
+                    android:hint="All Organization"
+                    app:met_floatingLabel="normal"
+                    app:met_baseColor="@color/colorBlack"
+                    app:met_textColor="@color/colorBlack"
+                    app:met_textColorHint="@color/colorBlack"/>
+
+                <com.weiwangcn.betterspinner.library.material.MaterialBetterSpinner
+                    android:id="@+id/frmSearch_cmbCountry"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="All Country"
                     app:met_floatingLabel="normal"
                     app:met_baseColor="@color/colorBlack"
                     app:met_textColor="@color/colorBlack"
@@ -99,26 +109,12 @@
                     android:layout_height="wrap_content">
 
                     <EditText
-                        android:id="@+id/frmSearch_txtFirstname"
+                        android:id="@+id/frmSearch_txtCity"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:inputType="textCapWords"
                         android:maxLength="50"
-                        android:hint="First Name" />
-
-                </android.support.design.widget.TextInputLayout>
-
-                <android.support.design.widget.TextInputLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <EditText
-                        android:id="@+id/frmSearch_txtLastname"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:inputType="textCapWords"
-                        android:hint="Last Name"
-                        android:maxLength="50"/>
+                        android:hint="City" />
 
                 </android.support.design.widget.TextInputLayout>
 

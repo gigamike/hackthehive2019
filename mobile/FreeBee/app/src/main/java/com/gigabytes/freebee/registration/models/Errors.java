@@ -3,7 +3,7 @@ package com.gigabytes.freebee.registration.models;
 import com.google.gson.annotations.SerializedName;
 
 public class Errors {
-    private String email,password,country,city;
+    private String email,password,country,city,organization;
 
     @SerializedName("first_name")
     private String firstName;
@@ -36,6 +36,11 @@ public class Errors {
         return city;
     }
 
+
+    public String getOrganization() {
+        return organization;
+    }
+
     public String getFirstName() {
         return firstName;
     }
@@ -63,6 +68,7 @@ public class Errors {
                 ", password='" + password + '\'' +
                 ", country='" + country + '\'' +
                 ", city='" + city + '\'' +
+                ", organization='" + organization + '\'' +
                 ", firstName='" + firstName + '\'' +
                 ", middleName='" + middleName + '\'' +
                 ", lastName='" + lastName + '\'' +

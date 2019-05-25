@@ -1437,7 +1437,6 @@ id body
 id bottom
 id btnAbout
 id btnBuyCredits
-id btnChoosePicture
 id btnCreateOFW
 id btnCreateVolunteer
 id btnGoToLoginPage
@@ -1643,7 +1642,6 @@ id partition
 id percent
 id pin
 id pound
-id previewImage
 id price
 id profile_image
 id progressBar

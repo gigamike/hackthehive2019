@@ -149,6 +149,7 @@
                 app:met_floatingLabel="normal"
                 app:met_baseColor="@color/colorWhite"
                 app:met_textColor="@color/colorWhite"
+                android:popupTheme="@android:style/ThemeOverlay.Material.Light"
                 app:met_textColorHint="@color/colorWhite"/>
 
             <android.support.design.widget.TextInputLayout

@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\Users\\ONB-KRYSSEL\\Desktop\\FreeBee\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-large-v4\\values-large-v4.xml",
+            "outputFile": "C:\\Users\\ONB-KRYSSEL\\Desktop\\hackthehive2019\\mobile\\FreeBee\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-large-v4\\values-large-v4.xml",
             "map": [
                 {
                     "source": "C:\\Users\\ONB-KRYSSEL\\.gradle\\caches\\transforms-1\\files-1.1\\design-28.0.0.aar\\51e84ab5d19251b6528466c5c938d435\\res\\values-large-v4\\values-large-v4.xml",

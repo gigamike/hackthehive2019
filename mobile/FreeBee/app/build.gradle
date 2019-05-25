@@ -73,6 +73,7 @@ dependencies {
     implementation 'org.apache.httpcomponents:httpclient-android:4.3.5'
     implementation 'commons-codec:commons-codec:1.9'
     implementation 'com.riyagayasen.android:easyaccordion:1.0.3'
+    implementation 'im.dlg:android-dialer:1.2.5'
     annotationProcessor 'com.jakewharton:butterknife:6.1.0'
     implementation project(':android-sdk-1.0.1')
 }

@@ -5,6 +5,9 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.WRITE_CONTACTS" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
 
     <application
         android:name=".FreeBeeApplication"
@@ -18,7 +21,7 @@
         <activity
             android:name=".homescreen.views.activities.SearchRecordActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".homescreen.views.activities.ProfileActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
@@ -64,6 +67,11 @@
         <uses-library
             android:name="org.apache.http.legacy"
             android:required="false" />
+
+        <activity
+            android:name=".homescreen.views.activities.DialerActivity"
+            android:label="@string/title_activity_dialer"
+            android:theme="@style/AppTheme"></activity>
     </application>
 
 </manifest>

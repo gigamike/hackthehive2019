@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\Users\\ONB-KRYSSEL\\Desktop\\FreeBee\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v21\\values-v21.xml",
+            "outputFile": "C:\\Users\\ONB-KRYSSEL\\Desktop\\hackthehive2019\\mobile\\FreeBee\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v21\\values-v21.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\ONB-KRYSSEL\\Desktop\\FreeBee\\app\\src\\main\\res\\values-v21\\styles.xml",
+                    "source": "C:\\Users\\ONB-KRYSSEL\\Desktop\\hackthehive2019\\mobile\\FreeBee\\app\\src\\main\\res\\values-v21\\styles.xml",
                     "from": {
                         "startLines": "8,2",
                         "startColumns": "4,4",

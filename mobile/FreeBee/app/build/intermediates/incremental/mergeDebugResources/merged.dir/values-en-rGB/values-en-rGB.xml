@@ -45,6 +45,11 @@
     <string msgid="5201977337835724196" name="common_open_on_phone">"Open on phone"</string>
     <string msgid="3441753203274453993" name="common_signin_button_text">"Sign In"</string>
     <string msgid="669893613918351210" name="common_signin_button_text_long">"Sign in with Google"</string>
+    <string msgid="8431313818404527096" name="description_delete_button">"backspace"</string>
+    <string msgid="6226488105558971135" name="description_dialpad_back">"Navigate back"</string>
+    <string msgid="5984341386518189787" name="description_dialpad_overflow">"More options"</string>
+    <string msgid="8936338119824589388" name="description_image_button_plus">"plus"</string>
+    <string msgid="4187006295368768215" name="description_voicemail_button">"voicemail"</string>
     <string msgid="146198913615257606" name="search_menu_title">"Search"</string>
     <string msgid="7988687684186075107" name="status_bar_notification_info_overflow">"999+"</string>
 </resources>

@@ -25,6 +25,8 @@ import com.google.firebase.firestore.FirebaseFirestoreSettings;
 import com.google.firebase.firestore.model.Document;
 import com.squareup.picasso.Picasso;
 
+import org.apache.commons.lang3.StringUtils;
+
 import java.util.List;
 
 import butterknife.ButterKnife;
@@ -159,6 +161,11 @@ public class ContactsListRecyclerViewAdapter extends RecyclerView.Adapter<Contac
                 });
 
             } else {
+                if(StringUtils.isBlank(contactsDO.getMobileNumber())) {
+                    Toast.makeText(context, "User is not available to call right now", Toast.LENGTH_LONG).show();
+                    return;
+                }
+
                 Intent callIntent = new Intent(Intent.ACTION_CALL);
                 callIntent.setData(Uri.parse("tel:" + contactsDO.getMobileNumber()));
                 context.startActivity(callIntent);

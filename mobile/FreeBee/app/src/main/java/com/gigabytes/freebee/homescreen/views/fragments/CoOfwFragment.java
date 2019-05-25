@@ -4,6 +4,7 @@ package com.gigabytes.freebee.homescreen.views.fragments;
 import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.AppCompatButton;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -47,6 +48,8 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class CoOfwFragment extends Fragment {
 
     @InjectView(R.id.coOfwRecyclerView) RecyclerView coOfwRecyclerView;
+    @InjectView(R.id.swipeCoOFW) SwipeRefreshLayout swipeCoOFW;
+
     @InjectView(R.id.frmSearch_cmbCountry) MaterialBetterSpinner frmSearch_cmbCountry;
     @InjectView(R.id.frmSearch_txtCity) EditText frmSearch_txtCity;
     @InjectView(R.id.btnSearch) AppCompatButton btnSearch;
@@ -97,6 +100,11 @@ public class CoOfwFragment extends Fragment {
 
         loadCountries();
         showAllOFW();
+
+        swipeCoOFW.setOnRefreshListener(() -> {
+            showAllOFW();
+            swipeCoOFW.setRefreshing(false);
+        });
 
         frmSearch_cmbCountry.setOnItemClickListener((parent, view1, position, id) -> {
             countryCode = countriesList.get(position).getCountryCode();

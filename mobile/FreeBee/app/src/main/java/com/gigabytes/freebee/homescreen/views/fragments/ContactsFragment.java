@@ -4,6 +4,7 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.AppCompatButton;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -53,6 +54,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class ContactsFragment extends Fragment {
 
     @InjectView(R.id.my_recycler_view) RecyclerView recyclerView;
+    @InjectView(R.id.swipeContacts) SwipeRefreshLayout swipeContacts;
 
     @InjectView(R.id.frmSearch_cmbOrganization) MaterialBetterSpinner frmSearch_cmbOrganization;
     @InjectView(R.id.frmSearch_cmbCountry) MaterialBetterSpinner frmSearch_cmbCountry;
@@ -136,6 +138,7 @@ public class ContactsFragment extends Fragment {
         loadOrganizations();
         loadCountries();
 
+<<<<<<< HEAD
         ContactsAPI contactsAPI = retrofit.create(ContactsAPI.class);
         if (freeBeeApplication.userRole.equals("volunteer")) {
 
@@ -216,19 +219,14 @@ public class ContactsFragment extends Fragment {
 
                         contactsDOList.add(contactsDO);
                     }
+=======
+        detectRoleToShowList(freeBeeApplication, progressDialog);
+>>>>>>> 5b6b0bc6219a2c338ea605f18c8280603fe89f2a
 
-                    recyclerView.setAdapter(new ContactsListRecyclerViewAdapter(contactsDOList, getContext()));
-
-                }
-
-                @Override
-                public void onFailure(Call<VolunteerResponse> call, Throwable t) {
-                    progressDialog.dismiss();
-                    Toast.makeText(getContext(), t.getMessage(), Toast.LENGTH_LONG).show();
-                }
-            });
-
-        }
+        swipeContacts.setOnRefreshListener(() -> {
+            detectRoleToShowList(freeBeeApplication, progressDialog);
+            swipeContacts.setRefreshing(false);
+        });
 
         return view;
     }
@@ -406,5 +404,98 @@ public class ContactsFragment extends Fragment {
                 progressDialog.dismiss();
             }
         });
+    }
+
+    private void loadAllOfw(ProgressDialog progressDialog, ContactsAPI contactsAPI){
+        progressDialog.setMessage("Loading ofws...");
+        progressDialog.show();
+
+        contactsAPI.getAllOFW().enqueue(new Callback<OFWResponse>() {
+            @Override
+            public void onResponse(Call<OFWResponse> call, Response<OFWResponse> response) {
+                progressDialog.dismiss();
+
+                List<OFW> ofwList = response.body().getResults();
+                List<ContactsDO> contactsDOList = new ArrayList<>();
+
+                for (OFW ofw : ofwList) {
+
+                    ContactsDO contactsDO = new ContactsDO(
+                            ofw.getId(),
+                            ofw.getFirstName(),
+                            ofw.getMiddleName(),
+                            ofw.getLastName(),
+                            ofw.getOrganization(),
+                            ofw.getProfilePic(),
+                            ofw.getCountry(),
+                            ofw.getCity(),
+                            ofw.isOnline(),
+                            ofw.getDistance(),
+                            ofw.getMobileNumber()
+                    );
+
+                    contactsDOList.add(contactsDO);
+                    Log.d("debug","contact " + contactsDO);
+                }
+
+                recyclerView.setAdapter(new ContactsListRecyclerViewAdapter(contactsDOList, getContext()));
+            }
+
+            @Override
+            public void onFailure(Call<OFWResponse> call, Throwable t) {
+                t.printStackTrace();
+            }
+        });
+    }
+
+    private void loadAllVolunteer(ProgressDialog progressDialog, ContactsAPI contactsAPI){
+        progressDialog.setMessage("Loading volunteers...");
+        progressDialog.show();
+
+        contactsAPI.getAllVolunteer().enqueue(new Callback<VolunteerResponse>() {
+            @Override
+            public void onResponse(Call<VolunteerResponse> call, Response<VolunteerResponse> response) {
+                progressDialog.dismiss();
+
+                List<Volunteer> volunteerList = Objects.requireNonNull(response.body()).getResults();
+
+                for (Volunteer volunteer : volunteerList) {
+
+                    ContactsDO contactsDO = new ContactsDO(
+                            volunteer.getId(),
+                            volunteer.getFirstname(),
+                            volunteer.getMiddlename(),
+                            volunteer.getLastname(),
+                            volunteer.getOrganization(),
+                            volunteer.getProfilePic(),
+                            volunteer.getCountry(),
+                            volunteer.getCity(),
+                            volunteer.isOnline(),
+                            volunteer.getDistance(),
+                            volunteer.getMobileNumber()
+                    );
+
+                    contactsDOList.add(contactsDO);
+                }
+
+                recyclerView.setAdapter(new ContactsListRecyclerViewAdapter(contactsDOList, getContext()));
+
+            }
+
+            @Override
+            public void onFailure(Call<VolunteerResponse> call, Throwable t) {
+                progressDialog.dismiss();
+                Toast.makeText(getContext(), t.getMessage(), Toast.LENGTH_LONG).show();
+            }
+        });
+    }
+
+    private void detectRoleToShowList(FreeBeeApplication freeBeeApplication, ProgressDialog progressDialog){
+        ContactsAPI contactsAPI = retrofit.create(ContactsAPI.class);
+        if (freeBeeApplication.userRole.equals("volunteer")) {
+            loadAllOfw(progressDialog, contactsAPI);
+        } else if (freeBeeApplication.userRole.equals("ofw")) {
+            loadAllVolunteer(progressDialog, contactsAPI);
+        }
     }
 }

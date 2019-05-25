@@ -121,6 +121,8 @@
           <li>user_id = Optional. search for user_id. Example <?php echo $this->config['baseUrl']; ?>api/ofws?user_id=1</li>
           <li>first_name_keyword = Optional. search for %first name%. Example <?php echo $this->config['baseUrl']; ?>api/ofws?first_name_keyword=c</li>
           <li>last_name_keyword = Optional. search for %last name%. Example <?php echo $this->config['baseUrl']; ?>api/ofws?last_name_keyword=c</li>
+          <li>country_code = Optional. search for country. Example <?php echo $this->config['baseUrl']; ?>api/ofws?country_code=JP</li>
+          <li>city_keyword = Optional. search for city. Example <?php echo $this->config['baseUrl']; ?>api/ofws?city_keyword=Tokyo</li>
           <li>page = Optional. current page. Default 1. Example <?php echo $this->config['baseUrl']; ?>api/ofws?page=1</li>
           <li>item_count_per_page = Optional. item count per page. Default 10. Example <?php echo $this->config['baseUrl']; ?>api/ofws?page=2&item_count_per_page=3</li>
         </ul>
@@ -268,7 +270,13 @@
     </div>
     <div id="collapseMessage" class="collapse" role="tabpanel" aria-labelledby="headingMessage">
       <div class="card-body">
-        Not yet here
+        <strong>Endpoint:</strong> <?php echo $this->config['baseUrl']; ?>api/message<br>
+        <strong>Method:</strong> POST<br>
+        <strong>Parameter:</strong> <ul>
+          <li>sender_user_id = Required.</li>
+          <li>recipient_user_id = Required.</li>
+          <li>message = Required.</li>
+        </ul>
       </div>
     </div>
   </div>

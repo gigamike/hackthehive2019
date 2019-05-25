@@ -394,6 +394,7 @@ public final class R {
         public static final int activity_chooser_view_content = 0x7f08001c;
         public static final int always = 0x7f080023;
         public static final int beginning = 0x7f080027;
+<<<<<<< HEAD
         public static final int checkbox = 0x7f080057;
         public static final int collapseActionView = 0x7f08005d;
         public static final int decor_content_parent = 0x7f08006c;
@@ -440,6 +441,54 @@ public final class R {
         public static final int useLogo = 0x7f080184;
         public static final int withText = 0x7f08018b;
         public static final int wrap_content = 0x7f08018d;
+=======
+        public static final int checkbox = 0x7f080056;
+        public static final int collapseActionView = 0x7f08005c;
+        public static final int decor_content_parent = 0x7f08006b;
+        public static final int default_activity_button = 0x7f08006c;
+        public static final int disableHome = 0x7f08007f;
+        public static final int edit_query = 0x7f080088;
+        public static final int end = 0x7f08008a;
+        public static final int expand_activities_button = 0x7f08008f;
+        public static final int expanded_menu = 0x7f080090;
+        public static final int highlight = 0x7f0800b3;
+        public static final int home = 0x7f0800b7;
+        public static final int homeAsUp = 0x7f0800b8;
+        public static final int icon = 0x7f0800b9;
+        public static final int ifRoom = 0x7f0800bc;
+        public static final int image = 0x7f0800c0;
+        public static final int listMode = 0x7f0800e0;
+        public static final int list_item = 0x7f0800e1;
+        public static final int middle = 0x7f0800e7;
+        public static final int never = 0x7f0800f3;
+        public static final int none = 0x7f0800f6;
+        public static final int normal = 0x7f0800f7;
+        public static final int progress_circular = 0x7f08010c;
+        public static final int progress_horizontal = 0x7f08010d;
+        public static final int radio = 0x7f080111;
+        public static final int search_badge = 0x7f080122;
+        public static final int search_bar = 0x7f080123;
+        public static final int search_button = 0x7f080129;
+        public static final int search_close_btn = 0x7f08012a;
+        public static final int search_edit_frame = 0x7f08012b;
+        public static final int search_go_btn = 0x7f08012c;
+        public static final int search_mag_icon = 0x7f08012e;
+        public static final int search_plate = 0x7f08012f;
+        public static final int search_src_text = 0x7f080131;
+        public static final int search_voice_btn = 0x7f080133;
+        public static final int shortcut = 0x7f080137;
+        public static final int showCustom = 0x7f080138;
+        public static final int showHome = 0x7f08013a;
+        public static final int showTitle = 0x7f08013d;
+        public static final int split_action_bar = 0x7f080145;
+        public static final int submit_area = 0x7f080152;
+        public static final int tabMode = 0x7f080158;
+        public static final int title = 0x7f080172;
+        public static final int up = 0x7f080182;
+        public static final int useLogo = 0x7f080183;
+        public static final int withText = 0x7f08018a;
+        public static final int wrap_content = 0x7f08018c;
+>>>>>>> 5b6b0bc6219a2c338ea605f18c8280603fe89f2a
     }
     public static final class layout {
         private layout() {}

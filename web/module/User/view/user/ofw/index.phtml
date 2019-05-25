@@ -1,0 +1,122 @@
+<!-- Page Heading/Breadcrumbs -->
+<h1 class="mt-4 mb-3">
+  Co-OFW <small>Talk to the nearest O.F.W.</small>
+</h1>
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">
+    <a href="<?php echo $this->url('home'); ?>">Home</a>
+  </li>
+  <li class="breadcrumb-item active">Co-O.F.W.</li>
+</ol>
+<?php if ($user = $this->identity()): ?>
+  <div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-4">Hello <?php echo $user->first_name; ?> <?php echo $user->last_name; ?></h1>
+    <p class="lead">O.F.W. Current Location: <?php echo $this->currentCity; ?>, <?php echo $this->currentCountry; ?></p>
+  </div>
+</div>
+<?php else: ?>
+<div class="float-right">
+  <a href="<?php echo $this->url('community', array('action' => 'ofw',)); ?>" class="btn btn-primary">Signup As OFW</a>
+  <a href="<?php echo $this->url('community', array('action' => 'volunteer',)); ?>" class="btn btn-success">Signup As Volunteer</a>
+</div>
+<div class="clearfix"></div><br>
+<?php endif; ?>
+<div class="row">
+  <div class="col-lg-12 mb-4">
+    <div class="card">
+      <div class="card-body">
+        <form class="form-inline" method="POST" action="<?php echo $this->url('community', array('action' => 'search',)); ?>">
+          <div class="form-row">
+            <div class="form-group col-md-4">
+                <select id="country_code" class="form-control" name="country_code">
+                    <option value="">All Country</option>
+                    <?php if($this->countries): ?>
+                        <?php foreach ($this->countries as $row): ?>
+                            <option <?php if($row->getCountryCode() == $this->filter['country_code']): ?>selected="selected"<?php endif; ?> value="<?php echo $row->getCountryCode(); ?>"><?php echo $row->getCountryName(); ?></option>
+                        <?php endforeach;?>
+                    <?php endif; ?>
+                </select>
+                <?php if ($user = $this->identity()): ?>
+                <small id="passwordHelpBlock" class="form-text text-muted">
+                  Current Location: <?php echo $this->currentCity; ?>, <?php echo $this->currentCountry; ?>
+                </small>
+                <?php endif; ?>
+            </div>
+            <div class="form-group col-md-4">
+              <input name="city_keyword" id="city_keyword" type="text" class="form-control" placeholder="%City%">
+            </div>
+            <div class="form-group col-md-4">
+              <input id="btnFilter" class="btn btn-primary" name="submit" value="Filter" type="submit">
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+
+  <!-- Blog Entries Column -->
+  <div class="col-md-9">
+    <div class="row">
+    <?php foreach ($this->paginator as $row) : ?>
+      <div class="col-lg-4 mb-4">
+        <div class="card h-100 text-center">
+          <div class="card-header">
+            <small>Distance: <?php echo round($row['distance'], 2); ?> KM.| <?php echo $this->online($row['id']); ?></small>
+          </div>
+          <?php if($row['profile_pic']): ?>
+          <?php $ext = pathinfo($row['profile_pic'], PATHINFO_EXTENSION); ?>
+          <a href="<?php echo $this->url('community', array('action' => 'view', 'id' => $row['id'])); ?>"><img class="card-img-top" src="/img/user/<?php echo $row['id']; ?>/photo-750x450.<?php echo $ext; ?>" alt="<?php echo $this->escapehtml($row['first_name']); ?> <?php echo $this->escapehtml($row['last_name']); ?>"></a>
+          <?php else: ?>
+          <a href="<?php echo $this->url('community', array('action' => 'view', 'id' => $row['id'])); ?>"><img class="card-img-top" src="http://placehold.it/750x450" alt="<?php echo $this->escapehtml($row['first_name']); ?> <?php echo $this->escapehtml($row['last_name']); ?>"></a>
+          <?php endif; ?>
+          <div class="card-body">
+            <a href="<?php echo $this->url('community', array('action' => 'view', 'id' => $row['id'])); ?>"><h4 class="card-title"><?php echo $this->escapehtml($row['first_name']); ?> <?php echo $this->escapehtml($row['last_name']); ?></h4></a>
+            <small>From: <?php echo $this->escapehtml($row['city']); ?>, <?php echo $this->escapehtml($row['country_name']); ?></small>
+          </div>
+          <div class="card-footer">
+            <a href="<?php echo $this->url('community', array('action' => 'view', 'id' => $row['id'])); ?>" class="btn btn-primary">Talk To Me</a>
+          </div>
+        </div>
+      </div>
+    <?php endforeach; ?>
+    </div>
+
+    <?php
+    	echo $this->paginationControl(
+    	    $this->paginator,
+    	    'sliding',
+    	    "partial/index/paginator.phtml",
+    	    array(
+    	       'route' => 'home',
+    			   'search_by' => $this->search_by,
+    	    )
+    	);
+    ?>
+
+  </div>
+
+  <!-- Sidebar Widgets Column -->
+  <div class="col-md-3">
+    <!-- Side Widget -->
+    <div class="card">
+      <h5 class="card-header">Ads Here</h5>
+      <div class="card-body">
+        <h5>Free Bee PHONE-anza</h5>
+        <a href="#"><img class="img-fluid" src="/img/ads/ads1.jpg"></a><br><br>
+        <a href="#" class="btn btn-primary btn-sm">Learn More</a>
+        <br><br>
+        <h5>Sweet Success</h5>
+        <a href="#"><img class="img-fluid" src="/img/ads/ads2.jpg"></a><br><br>
+        <a href="#" class="btn btn-primary btn-sm">Learn More</a>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+<!-- /.row -->

@@ -1,0 +1,135 @@
+<h1 class="mt-4 mb-3">Registration
+  <small>Volunteer</small>
+</h1>
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">
+    <a href="<?php echo $this->url('home'); ?>">Home</a>
+  </li>
+  <li class="breadcrumb-item active">Registration Volunteer</li>
+</ol>
+
+<div class="row">
+  <div class="col-lg-8 mb-4">
+    <?php
+    $flash = $this->flashMessenger();
+    $flash->setMessageOpenFormat('<div%s role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        ')
+        ->setMessageSeparatorString('')
+        ->setMessageCloseString('</div>');
+
+    echo $flash->render('error',   array('alert', 'alert-dismissible', 'alert-danger'));
+    echo $flash->render('info',    array('alert', 'alert-dismissible', 'alert-info'));
+    echo $flash->render('default', array('alert', 'alert-dismissible', 'alert-warning'));
+    echo $flash->render('success', array('alert', 'alert-dismissible', 'alert-success'));
+     ?>
+
+     <?php
+         $form->setAttribute('action', $this->url('community', array('action' => 'Volunteer',)));
+         $form->prepare();
+         echo $this->form()->openTag($form);
+         ?>
+         <?= $this->formElement($form->get('security')) ?>
+    <h3>Login Details</h3>
+     <div class="control-group form-group">
+       <div class="controls">
+         <?= $this->formLabel($form->get('email')) ?>
+         <?= $this->formElement($form->get('email')) ?>
+         <?= $this->formElementErrors()->render($form->get('email'), ['class' => 'help-block']) ?>
+       </div>
+     </div>
+     <div class="control-group form-group">
+       <div class="controls">
+         <?= $this->formLabel($form->get('password')) ?>
+         <?= $this->formElement($form->get('password')) ?>
+         <?= $this->formElementErrors()->render($form->get('password'), ['class' => 'help-block']) ?>
+       </div>
+     </div>
+     <div class="control-group form-group">
+       <div class="controls">
+         <?= $this->formLabel($form->get('password_confirm')) ?>
+         <?= $this->formElement($form->get('password_confirm')) ?>
+         <?= $this->formElementErrors()->render($form->get('password_confirm'), ['class' => 'help-block']) ?>
+       </div>
+     </div>
+
+     <h3>Personal Information</h3>
+     <div class="control-group form-group">
+       <div class="controls">
+         <?= $this->formLabel($form->get('organization_id')) ?>
+         <?= $this->formElement($form->get('organization_id')) ?>
+         <?= $this->formElementErrors()->render($form->get('organization_id'), ['class' => 'help-block']) ?>
+       </div>
+     </div>
+      <div class="control-group form-group">
+        <div class="controls">
+          <?= $this->formLabel($form->get('first_name')) ?>
+          <?= $this->formElement($form->get('first_name')) ?>
+          <?= $this->formElementErrors()->render($form->get('first_name'), ['class' => 'help-block']) ?>
+        </div>
+      </div>
+      <div class="control-group form-group">
+        <div class="controls">
+          <?= $this->formLabel($form->get('middle_name')) ?>
+          <?= $this->formElement($form->get('middle_name')) ?>
+          <?= $this->formElementErrors()->render($form->get('middle_name'), ['class' => 'help-block']) ?>
+        </div>
+      </div>
+      <div class="control-group form-group">
+        <div class="controls">
+          <?= $this->formLabel($form->get('last_name')) ?>
+          <?= $this->formElement($form->get('last_name')) ?>
+          <?= $this->formElementErrors()->render($form->get('last_name'), ['class' => 'help-block']) ?>
+        </div>
+      </div>
+      <div class="control-group form-group">
+        <div class="controls">
+          <?= $this->formLabel($form->get('country_id')) ?>
+          <?= $this->formElement($form->get('country_id')) ?>
+          <?= $this->formElementErrors()->render($form->get('country_id'), ['class' => 'help-block']) ?>
+        </div>
+      </div>
+      <div class="control-group form-group">
+        <div class="controls">
+          <?= $this->formLabel($form->get('city')) ?>
+          <?= $this->formElement($form->get('city')) ?>
+          <?= $this->formElementErrors()->render($form->get('city'), ['class' => 'help-block']) ?>
+        </div>
+      </div>
+      <div class="control-group form-group">
+        <div class="controls">
+          <?php echo $this->formLabel($form->get('profile_picture')); ?>
+          <?php echo $this->formFile($form->get('profile_picture')); ?>
+          <?php echo $this->formElementErrors($form->get('profile_picture')); ?>
+        </div>
+      </div>
+      <div class="control-group form-group">
+        <div class="controls">
+          <?= $this->formLabel($form->get('mobile_no')) ?>
+          <?= $this->formElement($form->get('mobile_no')) ?>
+          <?= $this->formElementErrors()->render($form->get('mobile_no'), ['class' => 'help-block']) ?>
+        </div>
+      </div>
+
+      <h3>Confirm Not A Bot</h3>
+
+      <div class="control-group form-group">
+        <div class="controls">
+          <?= $this->formElement($form->get('captcha')) ?>
+          <?= $this->formLabel($form->get('captcha')) ?>
+          <?= $this->formElementErrors()->render($form->get('captcha'), ['class' => 'help-block']) ?>
+        </div>
+      </div>
+      <?php echo $this->formSubmit($form->get('submit')); ?>
+    <?php echo $this->form()->closeTag();?>
+
+  </div>
+
+  <div class="col-lg-4 mb-4">
+    <h3>Volunteer</h3>
+    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+  </div>
+</div>

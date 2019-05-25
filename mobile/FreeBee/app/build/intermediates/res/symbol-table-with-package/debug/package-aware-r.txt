@@ -1742,6 +1742,8 @@ id submit_area
 id subscriber_container
 id suggestions_list
 id suggestions_list_container
+id swipeCoOFW
+id swipeContacts
 id tabMode
 id tag_transition_group
 id tag_unhandled_key_event_manager

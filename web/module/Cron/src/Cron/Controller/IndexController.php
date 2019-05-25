@@ -10,10 +10,21 @@ class IndexController extends AbstractActionController
   /*
   *
   * /Applications/MAMP/bin/php/php7.0.33/bin/php /Users/michaelgerardgalon/Sites/hackathons/hackthehive2019.gigamike.net/public_html/index.php cron-test
-  * /opt/php71/bin/php /home3/gigamike/hackthehive2019.gigamike.net/public_html/index.php cron-test
+  * php /home3/gigamike/hackthehive2019.gigamike.net/public_html/index.php cron-test
   */
   public function indexAction()
   {
+    $url = "http://hackthehive2019.gigamike.net/api/message";
+    $post = array(
+      'sender_user_id' => 17,
+      'recipient_user_id' => 2,
+      'message' => 'this is a test',
+    );
+
+    $results = $this->_curl($url, $post);
+    print_r($results);
+    exit();
+
     // curl -X POST -d "email=volunteer2@gigamike.net&password=changeme"http://hackthehive2019.gigamike.net/api/login
     // curl -X POST -d "email=volunteer1@gigamike.net&password=changeme" http://hackthehive2019.gigamike.net/api/login
     /*

@@ -10,6 +10,7 @@ return array(
         'Api',
         'Cron',
         'FreeBeeApi',
+        'Sms',
     ),
 
     // These are various options for the listeners attached to the ModuleManager

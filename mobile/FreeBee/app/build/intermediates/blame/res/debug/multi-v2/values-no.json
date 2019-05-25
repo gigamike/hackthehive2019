@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\Users\\ONB-KRYSSEL\\Desktop\\hackthehive2019\\mobile\\FreeBee\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-no\\values-no.xml",
+            "outputFile": "C:\\Users\\user\\Documents\\Programming\\Hackathon_Projects\\hackthehive2019\\mobile\\FreeBee\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-no\\values-no.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\ONB-KRYSSEL\\.gradle\\caches\\transforms-1\\files-1.1\\android-dialer-1.2.5.aar\\292476c14a2c25f272fb8de04afd37d9\\res\\values-no\\values-no.xml",
+                    "source": "C:\\Users\\user\\.gradle\\caches\\transforms-1\\files-1.1\\android-dialer-1.2.5.aar\\dc190a5d4b4d01f8ed5f27bf51dc385b\\res\\values-no\\values-no.xml",
                     "from": {
                         "startLines": "2,3,4,5,6",
                         "startColumns": "4,4,4,4,4",

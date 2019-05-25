@@ -5,11 +5,13 @@ import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.AppCompatButton;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 
@@ -61,6 +63,11 @@ public class CoOfwFragment extends Fragment {
     }
 
     @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+    }
+
+    @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
@@ -76,15 +83,24 @@ public class CoOfwFragment extends Fragment {
                 .build();
 
         coOfwRecyclerView.setHasFixedSize(true);
+        LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity());
+        coOfwRecyclerView.setLayoutManager(layoutManager);
 
         btnSearch.setOnClickListener(v -> {
             city = frmSearch_txtCity.getText().toString().trim();
+
+            Log.d("city", city);
 
             searchOFW();
         });
 
         loadCountries();
         showAllOFW();
+
+        frmSearch_cmbCountry.setOnItemClickListener((parent, view1, position, id) -> {
+            countryCode = countriesList.get(position).getCountryCode();
+            Log.d("debug", "Selected: " + countryCode);
+        });
 
         return view;
     }
@@ -109,10 +125,6 @@ public class CoOfwFragment extends Fragment {
                 }
 
                 frmSearch_cmbCountry.setAdapter(new ArrayAdapter<>(getContext(), android.R.layout.simple_spinner_dropdown_item, countriesList));
-                frmSearch_cmbCountry.setOnItemClickListener((parent, view, position, id) -> {
-                    countryCode = countriesList.get(position).getCountryCode();
-                    Log.d("debug", "Selected: " + countryCode);
-                });
             }
 
             @Override
@@ -131,6 +143,10 @@ public class CoOfwFragment extends Fragment {
         progressDialog.show();
 
         ContactsAPI contactsAPI = retrofit.create(ContactsAPI.class);
+
+        Log.d("debug", "countryCode: " + countryCode);
+        Log.d("debug", "city: " + city);
+
         contactsAPI.getSearchedOFW(countryCode, city).enqueue(new Callback<OFWResponse>() {
             @Override
             public void onResponse(Call<OFWResponse> call, Response<OFWResponse> response) {
@@ -164,6 +180,7 @@ public class CoOfwFragment extends Fragment {
             @Override
             public void onFailure(Call<OFWResponse> call, Throwable t) {
                 progressDialog.dismiss();
+                Log.e("error", t.getCause().getMessage());
             }
         });
     }

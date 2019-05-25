@@ -326,7 +326,7 @@ public class HomeScreenActivity extends AppCompatActivity {
             @Override
             public void onPageSelected(int position) {
 
-                if (position == 1) {
+                if (position == 2) {
                     dialerFloatingActionButton.show();
                 } else {
                     dialerFloatingActionButton.hide();

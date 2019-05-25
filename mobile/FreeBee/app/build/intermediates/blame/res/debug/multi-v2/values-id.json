@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\Users\\ONB-KRYSSEL\\Desktop\\hackthehive2019\\mobile\\FreeBee\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-id\\values-id.xml",
+            "outputFile": "C:\\Users\\user\\Documents\\Programming\\Hackathon_Projects\\hackthehive2019\\mobile\\FreeBee\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-id\\values-id.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\ONB-KRYSSEL\\.gradle\\caches\\transforms-1\\files-1.1\\zxing-android-embedded-3.2.0.aar\\50f94b565cbe13b5bae9a62b7a1c56df\\res\\values-id\\values-id.xml",
+                    "source": "C:\\Users\\user\\.gradle\\caches\\transforms-1\\files-1.1\\zxing-android-embedded-3.2.0.aar\\6f2a55b682f5c75b3f7da56ed9878e70\\res\\values-id\\values-id.xml",
                     "from": {
                         "startLines": "2,3,4,5",
                         "startColumns": "4,4,4,4",

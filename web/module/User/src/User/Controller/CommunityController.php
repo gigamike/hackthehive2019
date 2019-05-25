@@ -546,23 +546,30 @@ class CommunityController extends AbstractActionController
         if ($form->isValid()) {
           $data = $form->getData();
 
-          /*
           $config = $this->getServiceLocator()->get('Config');
+
+          $subject = "O.F.W. Inquiry.";
+          $message = $data['message'] . "\n\n" . $_SERVER['REMOTE_ADDR'];
 
           $mail = new  Message();
 
-          $mail->setFrom($data['email']);
-          $mail->addTo($config['email']);
+          // $mail->setFrom($currentUser->getEmail());
+          $mail->setFrom($currentUser->getEmail());
+          $mail->addTo($user->getEmail());
           $mail->setEncoding("UTF-8");
-          $mail->setSubject($data['subject']);
-          $mail->setBody($data['message'] . "\n\n" . $_SERVER['REMOTE_ADDR']);
+          $mail->setSubject($subject);
+          $mail->setBody($message);
 
           $transport = new Sendmail();
           $transport->send($mail);
-          */
+
+          $sender = 'HackTheHive';
+          $numbers = array('639086087306');
+          $serviceSms = $this->getServiceLocator()->get('ServiceSms');
+          // $serviceSms->sendSms($sender, $numbers, $message);
 
           $this->flashMessenger()->setNamespace('success')->addMessage('Thank you. Message sent.');
-          return $this->redirect()->toRoute('home', array('action' => 'message', 'id' => $id,));
+          return $this->redirect()->toRoute('community', array('action' => 'view', 'id' => $id,));
         }else{
           print_r($form->getMessages());
         }

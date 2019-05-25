@@ -434,12 +434,12 @@ public final class R {
         public static final int showTitle = 0x7f08013d;
         public static final int split_action_bar = 0x7f080145;
         public static final int submit_area = 0x7f080152;
-        public static final int tabMode = 0x7f080156;
-        public static final int title = 0x7f080170;
-        public static final int up = 0x7f080180;
-        public static final int useLogo = 0x7f080181;
-        public static final int withText = 0x7f080188;
-        public static final int wrap_content = 0x7f08018a;
+        public static final int tabMode = 0x7f080158;
+        public static final int title = 0x7f080172;
+        public static final int up = 0x7f080182;
+        public static final int useLogo = 0x7f080183;
+        public static final int withText = 0x7f08018a;
+        public static final int wrap_content = 0x7f08018c;
     }
     public static final class layout {
         private layout() {}

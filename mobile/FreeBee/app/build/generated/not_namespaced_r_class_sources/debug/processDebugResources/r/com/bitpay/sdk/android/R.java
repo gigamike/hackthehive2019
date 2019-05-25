@@ -50,7 +50,7 @@ public final class R {
         public static final int refund = 0x7f080114;
         public static final int showQr = 0x7f08013b;
         public static final int status = 0x7f08014e;
-        public static final int timeRemaining = 0x7f08016f;
+        public static final int timeRemaining = 0x7f080171;
     }
     public static final class layout {
         private layout() {}

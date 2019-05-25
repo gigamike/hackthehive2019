@@ -88,8 +88,10 @@ public class ContactsListRecyclerViewAdapter extends RecyclerView.Adapter<Contac
 
         if(freeBeeApplication.userRole.equals("ofw")){
             viewHolder.lblVolunteerOrganization.setVisibility(View.GONE);
-        }else{
+        }else if(freeBeeApplication.userRole.equals("volunteer")){
             viewHolder.lblVolunteerOrganization.setVisibility(View.VISIBLE);
+        }else{
+            viewHolder.lblVolunteerOrganization.setVisibility(View.GONE);
         }
 
         viewHolder.lblVolunteerName.setText(sb.toString());

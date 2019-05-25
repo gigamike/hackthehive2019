@@ -511,15 +511,15 @@ public final class R {
         public static final int src_in = 0x7f080149;
         public static final int src_over = 0x7f08014a;
         public static final int submit_area = 0x7f080152;
-        public static final int tabMode = 0x7f080156;
-        public static final int textSpacerNoButtons = 0x7f08015e;
-        public static final int title = 0x7f080170;
-        public static final int title_template = 0x7f080172;
-        public static final int topPanel = 0x7f080175;
-        public static final int up = 0x7f080180;
-        public static final int useLogo = 0x7f080181;
-        public static final int withText = 0x7f080188;
-        public static final int wrap_content = 0x7f08018a;
+        public static final int tabMode = 0x7f080158;
+        public static final int textSpacerNoButtons = 0x7f080160;
+        public static final int title = 0x7f080172;
+        public static final int title_template = 0x7f080174;
+        public static final int topPanel = 0x7f080177;
+        public static final int up = 0x7f080182;
+        public static final int useLogo = 0x7f080183;
+        public static final int withText = 0x7f08018a;
+        public static final int wrap_content = 0x7f08018c;
     }
     public static final class integer {
         private integer() {}

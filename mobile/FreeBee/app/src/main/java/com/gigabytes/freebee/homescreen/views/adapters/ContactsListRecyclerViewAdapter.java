@@ -1,8 +1,10 @@
 package com.gigabytes.freebee.homescreen.views.adapters;
 
+import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.support.v7.widget.AppCompatButton;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -22,6 +24,8 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreSettings;
 import com.google.firebase.firestore.model.Document;
 import com.squareup.picasso.Picasso;
+
+import org.apache.commons.lang3.StringUtils;
 
 import java.util.List;
 
@@ -65,6 +69,7 @@ public class ContactsListRecyclerViewAdapter extends RecyclerView.Adapter<Contac
         return vh;
     }
 
+    @SuppressLint("MissingPermission")
     @Override
     public void onBindViewHolder(ContactListViewHolder viewHolder, int position) {
         final ContactsDO contactsDO = volunteerList.get(position);
@@ -156,7 +161,14 @@ public class ContactsListRecyclerViewAdapter extends RecyclerView.Adapter<Contac
                 });
 
             } else {
-                Toast.makeText(context, "Cannot call, User is offline", Toast.LENGTH_LONG).show();
+                if(StringUtils.isBlank(contactsDO.getMobileNumber())) {
+                    Toast.makeText(context, "User is not available to call right now", Toast.LENGTH_LONG).show();
+                    return;
+                }
+
+                Intent callIntent = new Intent(Intent.ACTION_CALL);
+                callIntent.setData(Uri.parse("tel:" + contactsDO.getMobileNumber()));
+                context.startActivity(callIntent);
             }
         });
     }

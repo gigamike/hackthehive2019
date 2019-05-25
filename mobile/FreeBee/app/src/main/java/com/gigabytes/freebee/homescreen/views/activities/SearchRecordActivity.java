@@ -138,32 +138,20 @@ public class SearchRecordActivity extends AppCompatActivity {
                 List<Volunteer> volunteerList = Objects.requireNonNull(response.body()).getResults();
                 List<ContactsDO> contactsDOList = new ArrayList<>();
 
-                Volunteer volunteerBean = new Volunteer();
-
                 for (Volunteer volunteer : volunteerList) {
 
-                    volunteerBean.setId(volunteer.getId());
-                    volunteerBean.setFirstname(volunteer.getFirstname());
-                    volunteerBean.setMiddlename(volunteer.getMiddlename());
-                    volunteerBean.setLastname(volunteer.getLastname());
-                    volunteerBean.setOrganization(volunteer.getOrganization());
-                    volunteerBean.setProfilePic(volunteer.getProfilePic());
-                    volunteerBean.setCountry(volunteer.getCountry());
-                    volunteerBean.setCity(volunteer.getCity());
-                    volunteerBean.setDistance(volunteer.getDistance());
-                    volunteerBean.setOnline(volunteer.isOnline());
-
                     ContactsDO contactsDO = new ContactsDO(
-                            volunteerBean.getId(),
-                            volunteerBean.getFirstname(),
-                            volunteerBean.getMiddlename(),
-                            volunteerBean.getLastname(),
-                            volunteerBean.getOrganization(),
-                            volunteerBean.getProfilePic(),
-                            volunteerBean.getCountry(),
-                            volunteerBean.getCity(),
-                            volunteerBean.isOnline(),
-                            volunteerBean.getDistance()
+                            volunteer.getId(),
+                            volunteer.getFirstname(),
+                            volunteer.getMiddlename(),
+                            volunteer.getLastname(),
+                            volunteer.getOrganization(),
+                            volunteer.getProfilePic(),
+                            volunteer.getCountry(),
+                            volunteer.getCity(),
+                            volunteer.isOnline(),
+                            volunteer.getDistance(),
+                            volunteer.getMobileNumber()
                     );
 
                     contactsDOList.add(contactsDO);
@@ -205,7 +193,8 @@ public class SearchRecordActivity extends AppCompatActivity {
                             ofw.getCountry(),
                             ofw.getCity(),
                             ofw.isOnline(),
-                            ofw.getDistance());
+                            ofw.getDistance(),
+                            ofw.getMobileNumber());
 
                     contactsDOList.add(contactsDO);
                     Log.d("debug","contact " + contactsDO);

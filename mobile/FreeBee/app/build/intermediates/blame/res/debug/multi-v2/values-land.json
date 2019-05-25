@@ -14,12 +14,31 @@
                         "endOffsets": "222"
                     },
                     "to": {
-                        "startLines": "5",
+                        "startLines": "27",
                         "startColumns": "4",
-                        "startOffsets": "264",
-                        "endLines": "8",
+                        "startOffsets": "1524",
+                        "endLines": "30",
                         "endColumns": "10",
-                        "endOffsets": "431"
+                        "endOffsets": "1691"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\user\\.gradle\\caches\\transforms-1\\files-1.1\\android-dialer-1.2.5.aar\\dc190a5d4b4d01f8ed5f27bf51dc385b\\res\\values-land\\values-land.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,7,8,16",
+                        "startColumns": "4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,114,169,225,284,338,397,825",
+                        "endLines": "2,3,4,5,6,7,15,23",
+                        "endColumns": "58,54,55,58,53,58,10,10",
+                        "endOffsets": "109,164,220,279,333,392,820,1310"
+                    },
+                    "to": {
+                        "startLines": "5,6,7,8,9,10,11,19",
+                        "startColumns": "4,4,4,4,4,4,4,4",
+                        "startOffsets": "264,323,378,434,493,547,606,1034",
+                        "endLines": "5,6,7,8,9,10,18,26",
+                        "endColumns": "58,54,55,58,53,58,10,10",
+                        "endOffsets": "318,373,429,488,542,601,1029,1519"
                     }
                 },
                 {

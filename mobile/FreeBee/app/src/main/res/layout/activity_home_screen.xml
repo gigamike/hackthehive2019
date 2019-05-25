@@ -28,5 +28,20 @@
         android:layout_alignParentTop="true"
         app:layout_behavior="@string/appbar_scrolling_view_behavior" />
 
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/dialerFloatingActionButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end|bottom"
+        android:layout_margin="16dp"
+        android:layout_marginEnd="36dp"
+        android:layout_marginBottom="8dp"
+        android:src="@drawable/baseline_dialpad"
+        android:clickable="true"
+        android:visibility="gone"
+        app:fabCustomSize="60dp"
+        app:layout_constraintBottom_toTopOf="@+id/navigation"
+        app:layout_constraintEnd_toEndOf="parent" />
+
 
 </android.support.constraint.ConstraintLayout>

@@ -2,6 +2,8 @@ package com.gigabytes.freebee.homescreen.views.model;
 
 import com.google.gson.annotations.SerializedName;
 
+import java.util.Objects;
+
 public class Volunteer {
     private String id,organization,country,city;
 
@@ -21,6 +23,9 @@ public class Volunteer {
 
     @SerializedName("is_online")
     private boolean isOnline;
+
+    @SerializedName("mobile_no")
+    private String mobileNumber;
 
     public void setId(String id) {
         this.id = id;
@@ -102,6 +107,32 @@ public class Volunteer {
         return isOnline;
     }
 
+    public String getMobileNumber() { return mobileNumber; }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Volunteer volunteer = (Volunteer) o;
+        return Double.compare(volunteer.distance, distance) == 0 &&
+                isOnline == volunteer.isOnline &&
+                Objects.equals(id, volunteer.id) &&
+                Objects.equals(organization, volunteer.organization) &&
+                Objects.equals(country, volunteer.country) &&
+                Objects.equals(city, volunteer.city) &&
+                Objects.equals(firstname, volunteer.firstname) &&
+                Objects.equals(middlename, volunteer.middlename) &&
+                Objects.equals(lastname, volunteer.lastname) &&
+                Objects.equals(profilePic, volunteer.profilePic) &&
+                Objects.equals(mobileNumber, volunteer.mobileNumber);
+    }
+
+    @Override
+    public int hashCode() {
+
+        return Objects.hash(id, organization, country, city, distance, firstname, middlename, lastname, profilePic, isOnline, mobileNumber);
+    }
+
     @Override
     public String toString() {
         return "Volunteer{" +
@@ -115,6 +146,7 @@ public class Volunteer {
                 ", lastname='" + lastname + '\'' +
                 ", profilePic='" + profilePic + '\'' +
                 ", isOnline=" + isOnline +
+                ", mobileNumber='" + mobileNumber + '\'' +
                 '}';
     }
 }

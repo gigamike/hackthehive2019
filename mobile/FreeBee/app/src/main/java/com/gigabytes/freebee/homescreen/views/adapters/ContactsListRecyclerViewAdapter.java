@@ -18,6 +18,7 @@ import android.widget.Toast;
 import com.gigabytes.freebee.FreeBeeApplication;
 import com.gigabytes.freebee.R;
 import com.gigabytes.freebee.homescreen.views.activities.ProfileActivity;
+import com.gigabytes.freebee.homescreen.views.activities.ViewOtherProfileActivity;
 import com.gigabytes.freebee.homescreen.views.model.ContactsDO;
 import com.gigabytes.freebee.videocall.views.activities.VideoCallActivity;
 import com.google.firebase.firestore.DocumentSnapshot;
@@ -29,7 +30,6 @@ import com.squareup.picasso.Picasso;
 import org.apache.commons.lang3.StringUtils;
 
 import java.util.List;
-import java.util.Objects;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
@@ -108,7 +108,16 @@ public class ContactsListRecyclerViewAdapter extends RecyclerView.Adapter<Contac
         Picasso.with(context).load(contactsDO.getProfilePic()).placeholder(R.drawable.no_image).into(viewHolder.imgVolunteerProfilePic);
 
         viewHolder.cardView_volunteer.setOnClickListener(v -> {
-           // do task here
+            Intent otherProfileIntent = new Intent(context, ViewOtherProfileActivity.class);
+            otherProfileIntent.putExtra("userId", contactsDO.getId());
+            otherProfileIntent.putExtra("fullName", contactsDO.getFirstname() + " " + contactsDO.getLastname());
+            otherProfileIntent.putExtra("organization", contactsDO.getOrganization());
+            otherProfileIntent.putExtra("userPictureURL", contactsDO.getProfilePic());
+            otherProfileIntent.putExtra("city", contactsDO.getCity());
+            otherProfileIntent.putExtra("country", contactsDO.getCountry());
+            otherProfileIntent.putExtra("mobileNumber", contactsDO.getMobileNumber());
+            otherProfileIntent.putExtra("isOnline", contactsDO.isOnline());
+            context.startActivity(otherProfileIntent);
         });
 
         viewHolder.btnTalkToMe.setOnClickListener(v -> {

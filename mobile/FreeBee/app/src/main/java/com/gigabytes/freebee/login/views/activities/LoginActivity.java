@@ -304,6 +304,7 @@ public class LoginActivity extends AppCompatActivity {
 
                                                     isOnCall.put("callerId", "");
                                                     isOnCall.put("isOnCall", false);
+                                                    isOnCall.put("isVoiceCall", false);
 
                                                     db.collection(USER_LIVE_NOTIFICATION_SESSION_COLLECTION)
                                                             .document(userId)

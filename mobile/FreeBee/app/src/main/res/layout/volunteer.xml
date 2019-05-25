@@ -97,7 +97,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
-                android:background="@color/colorPrimary"
+                android:background="@drawable/rounded_buttons"
                 android:gravity="center"
                 android:layout_below="@+id/lblVolunteerStatus"
                 android:padding="8dp"

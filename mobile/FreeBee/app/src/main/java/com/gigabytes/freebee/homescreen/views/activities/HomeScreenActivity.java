@@ -253,6 +253,7 @@ public class HomeScreenActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_screen);
+        requestPermissions();
 
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl("https://hackthehive2019.gigamike.net/api/")
@@ -347,6 +348,18 @@ public class HomeScreenActivity extends AppCompatActivity {
 
             }
         });
+    }
+
+    private static final int RC_APP_CONTACT_PERM = 100;
+    @AfterPermissionGranted(RC_APP_CONTACT_PERM)
+    private void requestPermissions() {
+        String[] perms = { Manifest.permission.READ_CONTACTS, Manifest.permission.WRITE_CONTACTS, Manifest.permission.CALL_PHONE};
+        if (EasyPermissions.hasPermissions(this, perms)) {
+            Log.d("debug", "GRANTEDDDDD");
+        }
+        else {
+            EasyPermissions.requestPermissions(this, "This app needs access to your camera and mic to make video calls", RC_APP_CONTACT_PERM, perms);
+        }
     }
 
 

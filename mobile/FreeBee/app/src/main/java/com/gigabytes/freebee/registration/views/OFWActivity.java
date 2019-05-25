@@ -133,7 +133,7 @@ public class OFWActivity extends AppCompatActivity {
                     countriesList.add(countries);
                 }
 
-                frmRegister_cmbCurrentCountry.setAdapter(new ArrayAdapter<>(getApplicationContext(), android.R.layout.simple_dropdown_item_1line, countriesList));
+                frmRegister_cmbCurrentCountry.setAdapter(new ArrayAdapter<>(OFWActivity.this, android.R.layout.simple_spinner_dropdown_item, countriesList));
 
                 frmRegister_cmbCurrentCountry.setOnItemClickListener((parent, view, position, id) -> {
                     frmRegister_cmbCurrentCountry.setSelection(position);

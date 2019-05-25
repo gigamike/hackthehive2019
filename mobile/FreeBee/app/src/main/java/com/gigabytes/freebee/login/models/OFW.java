@@ -100,7 +100,7 @@ public class OFW {
 
     @Override
     public String toString() {
-        return "OFW{" +
+        return "RegistrationOFW{" +
                 "id='" + id + '\'' +
                 ", firstName='" + firstName + '\'' +
                 ", middleName='" + middleName + '\'' +

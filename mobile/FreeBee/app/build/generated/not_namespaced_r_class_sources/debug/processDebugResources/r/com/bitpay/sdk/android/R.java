@@ -37,20 +37,20 @@ public final class R {
 
         public static final int address = 0x7f08001e;
         public static final int bitpay_scrollView = 0x7f08002a;
-        public static final int conversion = 0x7f08005a;
-        public static final int imageHolder = 0x7f0800a1;
-        public static final int imageView = 0x7f0800a2;
-        public static final int invoiceView = 0x7f0800a7;
-        public static final int launchWallet = 0x7f0800ac;
-        public static final int loadingQr = 0x7f0800bd;
-        public static final int price = 0x7f0800e1;
-        public static final int progressBar = 0x7f0800e3;
-        public static final int qr = 0x7f0800e7;
-        public static final int qrContainer = 0x7f0800e8;
-        public static final int refund = 0x7f0800eb;
-        public static final int showQr = 0x7f080111;
-        public static final int status = 0x7f080122;
-        public static final int timeRemaining = 0x7f080144;
+        public static final int conversion = 0x7f080059;
+        public static final int imageHolder = 0x7f0800a0;
+        public static final int imageView = 0x7f0800a1;
+        public static final int invoiceView = 0x7f0800a6;
+        public static final int launchWallet = 0x7f0800ab;
+        public static final int loadingQr = 0x7f0800bc;
+        public static final int price = 0x7f0800df;
+        public static final int progressBar = 0x7f0800e1;
+        public static final int qr = 0x7f0800e5;
+        public static final int qrContainer = 0x7f0800e6;
+        public static final int refund = 0x7f0800e9;
+        public static final int showQr = 0x7f08010f;
+        public static final int status = 0x7f080120;
+        public static final int timeRemaining = 0x7f080142;
     }
     public static final class layout {
         private layout() {}

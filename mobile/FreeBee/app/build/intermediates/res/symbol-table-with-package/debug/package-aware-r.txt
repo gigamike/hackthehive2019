@@ -1326,7 +1326,6 @@ id body
 id bottom
 id btnAbout
 id btnBuyCredits
-id btnChoosePicture
 id btnCreateOFW
 id btnCreateVolunteer
 id btnGoToLoginPage
@@ -1502,7 +1501,6 @@ id parent_matrix
 id partition
 id percent
 id pin
-id previewImage
 id price
 id profile_image
 id progressBar

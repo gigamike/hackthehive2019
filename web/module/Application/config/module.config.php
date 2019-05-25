@@ -56,6 +56,24 @@ return array(
                     ),
                 ),
             ),
+            'ofw' => array(
+                'type' => 'segment',
+                'options' => array(
+                    'route'    => '/ofw[/:action][/:id][/page/:page][/search_by/:search_by]',
+                    'constraints' => array(
+                        'action' => '[a-zA-Z][a-zA-Z0-9_-]*',
+                        'id' => '[0-9]+',
+                        'page' => '[0-9]+',
+                        'order_by' => '[a-zA-Z][a-zA-Z0-9_-]*',
+                        'order' => 'ASC|DESC',
+                        'search_by' => '.*',
+                    ),
+                    'defaults' => array(
+                      'controller' => 'User\Controller\Ofw',
+                      'action'     => 'index',
+                    ),
+                ),
+            ),
             'login' => array(
                 'type' => 'segment',
                 'options' => array(

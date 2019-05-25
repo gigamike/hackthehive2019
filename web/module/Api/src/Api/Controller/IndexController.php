@@ -177,6 +177,7 @@ class IndexController extends AbstractActionController
 			foreach ($countries as $country) {
 				$results[] = array(
 					'id' => $country->getId(),
+					'country_code' => $country->getCountryCode(),
 					'country_name' => $country->getCountryName(),
 				);
 			}
@@ -200,6 +201,8 @@ class IndexController extends AbstractActionController
 		$first_name_keyword = $this->params()->fromQuery('first_name_keyword');
 		$last_name_keyword = $this->params()->fromQuery('last_name_keyword');
 		$organization_id = $this->params()->fromQuery('organization_id');
+		$country_code = $this->params()->fromQuery('country_code');
+		$city_keyword = $this->params()->fromQuery('city_keyword');
 		$page = $this->params()->fromQuery('page');
 		$item_count_per_page = $this->params()->fromQuery('item_count_per_page');
 
@@ -254,6 +257,12 @@ class IndexController extends AbstractActionController
 		}
 		if(!empty($organization_id)){
 			$filter['organization_id'] = $organization_id;
+		}
+		if(!empty($country_code)){
+			$filter['country_code'] = $country_code;
+		}
+		if(!empty($city_keyword)){
+			$filter['city_keyword'] = $city_keyword;
 		}
 
 		$order = array(
@@ -323,6 +332,8 @@ class IndexController extends AbstractActionController
 		$user_id = $this->params()->fromQuery('user_id');
 		$first_name_keyword = $this->params()->fromQuery('first_name_keyword');
 		$last_name_keyword = $this->params()->fromQuery('last_name_keyword');
+		$country_code = $this->params()->fromQuery('country_code');
+		$city_keyword = $this->params()->fromQuery('city_keyword');
 		$page = $this->params()->fromQuery('page');
 		$item_count_per_page = $this->params()->fromQuery('item_count_per_page');
 
@@ -374,6 +385,12 @@ class IndexController extends AbstractActionController
 		}
 		if(!empty($last_name_keyword)){
 			$filter['last_name_keyword'] = $last_name_keyword;
+		}
+		if(!empty($country_code)){
+			$filter['country_code'] = $country_code;
+		}
+		if(!empty($city_keyword)){
+			$filter['city_keyword'] = $city_keyword;
 		}
 
 		$order = array(
@@ -1013,6 +1030,81 @@ class IndexController extends AbstractActionController
 			}
 		}else{
 			$results['error']['user'] = 'Invalid user.';
+		}
+
+		$response = $this->_getResponseWithHeader()->setContent(json_encode($results));
+    return $response;
+	}
+
+	/*
+	* http://hackthehive2019.gigamike.net/api/message
+	*
+	*/
+	public function messageAction()
+	{
+		$results = array();
+		$errors = array();
+
+		$config = $this->getServiceLocator()->get('Config');
+
+		if($this->getRequest()->isPost()) {
+      $data = $this->params()->fromPost();
+
+			$sender_user_id = trim($data['sender_user_id']);
+			$recipient_user_id = trim($data['recipient_user_id']);
+			$message = trim($data['message']);
+
+			if(empty($sender_user_id)){
+  			$results['error']['sender_user_id'] = 'Required field sender_user_id.';
+			}else{
+				$userSender = $this->getUserMapper()->getUser($sender_user_id);
+				if(!$userSender){
+					$results['error']['sender_user_id'] = 'Sender user does not exists.';
+				}
+			}
+
+			if(empty($recipient_user_id)){
+  			$results['error']['recipient_user_id'] = 'Required field recipient_user_id.';
+			}else{
+				$userRecipient = $this->getUserMapper()->getUser($recipient_user_id);
+				if(!$userRecipient){
+					$results['error']['recipient_user_id'] = 'Recipient user does not exists.';
+				}
+			}
+
+			if(empty($message)){
+  			$results['error']['message'] = 'Required field message.';
+			}
+
+			if(!isset($results['error'])){
+				$subject = "HackTheHive2019 Inquiry.";
+				$message = $message . "\n\n" . $_SERVER['REMOTE_ADDR'];
+
+				$mail = new  Message();
+
+				// $mail->setFrom($currentUser->getEmail());
+				$mail->setFrom($userSender->getEmail());
+				$mail->addTo($userRecipient->getEmail());
+				$mail->setEncoding("UTF-8");
+				$mail->setSubject($subject);
+				$mail->setBody($message);
+
+				$transport = new Sendmail();
+				// $transport->send($mail);
+
+				// $sender = 'HackTheHive';
+				// $numbers = array('639086087306');
+				$serviceSms = $this->getServiceLocator()->get('ServiceSms');
+				// $serviceSms->sendSms($sender, $numbers, $message);
+
+				$sender = 'HackTheHive';
+				$number = '639086087306';
+				$serviceSms->sendSms($sender, $number, $message);
+
+				$results['success'] = 'Message send.';
+			}
+		}else{
+			$results['error']['method'] = 'Invalid method.';
 		}
 
 		$response = $this->_getResponseWithHeader()->setContent(json_encode($results));

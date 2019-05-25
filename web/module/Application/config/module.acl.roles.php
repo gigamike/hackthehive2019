@@ -3,6 +3,7 @@ return array(
 	'guest'=> array(
 		'home',
 		'community',
+		'ofw',
 		'login',
 		'logout',
 		'forgot-password',

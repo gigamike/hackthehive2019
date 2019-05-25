@@ -37,20 +37,20 @@ public final class R {
 
         public static final int address = 0x7f08001e;
         public static final int bitpay_scrollView = 0x7f08002a;
-        public static final int conversion = 0x7f08005f;
-        public static final int imageHolder = 0x7f0800bb;
-        public static final int imageView = 0x7f0800bc;
-        public static final int invoiceView = 0x7f0800c1;
-        public static final int launchWallet = 0x7f0800c6;
-        public static final int loadingQr = 0x7f0800d7;
-        public static final int price = 0x7f0800fd;
-        public static final int progressBar = 0x7f0800ff;
-        public static final int qr = 0x7f080103;
-        public static final int qrContainer = 0x7f080104;
-        public static final int refund = 0x7f080108;
-        public static final int showQr = 0x7f08012f;
-        public static final int status = 0x7f080142;
-        public static final int timeRemaining = 0x7f080163;
+        public static final int conversion = 0x7f080060;
+        public static final int imageHolder = 0x7f0800bc;
+        public static final int imageView = 0x7f0800bd;
+        public static final int invoiceView = 0x7f0800c2;
+        public static final int launchWallet = 0x7f0800c7;
+        public static final int loadingQr = 0x7f0800dc;
+        public static final int price = 0x7f080102;
+        public static final int progressBar = 0x7f080104;
+        public static final int qr = 0x7f080108;
+        public static final int qrContainer = 0x7f080109;
+        public static final int refund = 0x7f08010d;
+        public static final int showQr = 0x7f080134;
+        public static final int status = 0x7f080147;
+        public static final int timeRemaining = 0x7f080168;
     }
     public static final class layout {
         private layout() {}
@@ -67,6 +67,6 @@ public final class R {
     public static final class style {
         private style() {}
 
-        public static final int bitpay_BitPayInvoice = 0x7f100205;
+        public static final int bitpay_BitPayInvoice = 0x7f100206;
     }
 }

@@ -93,7 +93,7 @@ public class LoginActivity extends AppCompatActivity {
             frmLoginAccount_txtPassword.requestFocus();
         }else {
 
-            progressDialog = new ProgressDialog(LoginActivity.this);
+            progressDialog = new ProgressDialog(LoginActivity.this, R.style.AppDialog);
             progressDialog.setIndeterminate(true);
             progressDialog.setMessage("Authenticating...");
             progressDialog.setCancelable(false);
@@ -148,6 +148,11 @@ public class LoginActivity extends AppCompatActivity {
                                     freeBeeApplication.userId = ofw.getId();
                                     freeBeeApplication.userPictureURL = ofw.getProfilePic();
 
+                                    freeBeeApplication.organization = ofw.getOrganization();
+                                    freeBeeApplication.city = ofw.getCity();
+                                    freeBeeApplication.country = ofw.getCountry();
+                                    freeBeeApplication.mobileNumber = ofw.getMobileNumber();
+
                                     startUserLiveNotificationSession(freeBeeApplication.userId,
                                             freeBeeApplication.fullName,
                                             freeBeeApplication.userPictureURL);
@@ -180,6 +185,11 @@ public class LoginActivity extends AppCompatActivity {
                                     freeBeeApplication.isLogin = volunteers.isOnline();
                                     freeBeeApplication.userId = volunteers.getId();
                                     freeBeeApplication.userPictureURL = volunteers.getProfilePic();
+
+                                    freeBeeApplication.organization = volunteers.getOrganization();
+                                    freeBeeApplication.city = volunteers.getCity();
+                                    freeBeeApplication.country = volunteers.getCountry();
+                                    freeBeeApplication.mobileNumber = volunteers.getMobileNumber();
 
                                     startUserLiveNotificationSession(freeBeeApplication.userId,
                                             freeBeeApplication.fullName,

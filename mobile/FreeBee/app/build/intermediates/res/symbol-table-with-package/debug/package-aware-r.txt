@@ -1446,6 +1446,7 @@ id btnLogout
 id btnSearch
 id btnTalkToMe
 id buttonAcceptCall
+id buttonBackbutton
 id buttonBuyCredits1
 id buttonBuyCredits2
 id buttonBuyCredits3
@@ -1589,7 +1590,11 @@ id labeled
 id largeLabel
 id launchWallet
 id lblAppName
+id lblCity
+id lblCountry
 id lblFullname
+id lblMobileNo
+id lblOrganization
 id lblVolunteerDistance
 id lblVolunteerLocation
 id lblVolunteerName
@@ -2045,6 +2050,7 @@ style Animation_AppCompat_Dialog
 style Animation_AppCompat_DropDownUp
 style Animation_AppCompat_Tooltip
 style Animation_Design_BottomSheetDialog
+style AppDialog
 style AppTheme
 style AppTheme_AppBarOverlay
 style AppTheme_Dark

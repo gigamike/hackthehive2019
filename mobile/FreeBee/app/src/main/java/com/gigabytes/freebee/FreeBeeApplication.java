@@ -13,4 +13,9 @@ public class FreeBeeApplication extends Application {
     public boolean isLogin;
     public String userRole;
 
+    public String organization;
+    public String city;
+    public String country;
+    public String mobileNumber;
+
 }

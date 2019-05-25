@@ -36,6 +36,9 @@ public class Volunteers {
     @SerializedName("profile_pic")
     private String profilePic;
 
+    @SerializedName("mobile_no")
+    private String mobileNumber;
+
     public String getId() {
         return id;
     }
@@ -76,6 +79,8 @@ public class Volunteers {
         return profilePic;
     }
 
+    public String getMobileNumber() { return mobileNumber; }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -90,12 +95,14 @@ public class Volunteers {
                 Objects.equals(city, that.city) &&
                 Objects.equals(country, that.country) &&
                 Objects.equals(organization, that.organization) &&
-                Objects.equals(profilePic, that.profilePic);
+                Objects.equals(profilePic, that.profilePic) &&
+                Objects.equals(mobileNumber, that.mobileNumber);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, firstName, middleName, lastName, city, country, organization, distance, isOnline, profilePic);
+
+        return Objects.hash(id, firstName, middleName, lastName, city, country, organization, distance, isOnline, profilePic, mobileNumber);
     }
 
     @Override
@@ -111,6 +118,7 @@ public class Volunteers {
                 ", distance=" + distance +
                 ", isOnline=" + isOnline +
                 ", profilePic='" + profilePic + '\'' +
+                ", mobileNumber='" + mobileNumber + '\'' +
                 '}';
     }
 }

@@ -36,6 +36,9 @@ public class OFW {
     @SerializedName("profile_pic")
     private String profilePic;
 
+    @SerializedName("mobile_no")
+    private String mobileNumber;
+
     public String getId() {
         return id;
     }
@@ -76,6 +79,8 @@ public class OFW {
         return profilePic;
     }
 
+    public String getMobileNumber() { return mobileNumber; }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -90,12 +95,14 @@ public class OFW {
                 Objects.equals(city, ofw.city) &&
                 Objects.equals(country, ofw.country) &&
                 Objects.equals(organization, ofw.organization) &&
-                Objects.equals(profilePic, ofw.profilePic);
+                Objects.equals(profilePic, ofw.profilePic) &&
+                Objects.equals(mobileNumber, ofw.mobileNumber);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, firstName, middleName, lastName, city, country, organization, distance, isOnline, profilePic);
+
+        return Objects.hash(id, firstName, middleName, lastName, city, country, organization, distance, isOnline, profilePic, mobileNumber);
     }
 
     @Override
@@ -111,6 +118,7 @@ public class OFW {
                 ", distance=" + distance +
                 ", isOnline=" + isOnline +
                 ", profilePic='" + profilePic + '\'' +
+                ", mobileNumber='" + mobileNumber + '\'' +
                 '}';
     }
 }

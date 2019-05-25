@@ -159,7 +159,7 @@
         android:layout_gravity="center">
 
         <LinearLayout
-            android:id="@+id/btnBuyCredits"
+            android:id="@+id/btnVideoCall"
             android:orientation="horizontal"
             android:paddingTop="10dp"
             android:paddingBottom="10dp"
@@ -168,24 +168,23 @@
             android:focusable="true"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="?android:attr/selectableItemBackground"
-            android:foreground="?android:attr/selectableItemBackground"
             >
             <ImageView
                 android:layout_width="36dp"
                 android:layout_height="36dp"
-                android:src="@drawable/ic_credit_card"/>
+                android:src="@drawable/baseline_video_call"/>
+
             <TextView
-                android:textStyle="bold"
-                android:layout_gravity="center_vertical"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
                 android:paddingLeft="20dp"
-                android:text="Buy Credits"/>
+                android:text="Video Call"
+                android:textStyle="bold" />
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/btnAbout"
+            android:id="@+id/btnVoiceCall"
             android:orientation="horizontal"
             android:paddingTop="10dp"
             android:paddingBottom="10dp"
@@ -199,18 +198,19 @@
             <ImageView
                 android:layout_width="36dp"
                 android:layout_height="36dp"
-                android:src="@drawable/ic_info"/>
+                android:src="@drawable/baseline_voice_chat"/>
+
             <TextView
-                android:textStyle="bold"
-                android:layout_gravity="center_vertical"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
                 android:paddingLeft="20dp"
-                android:text="About"/>
+                android:text="Voice Call"
+                android:textStyle="bold" />
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/btnLogout"
+            android:id="@+id/btnDirectCall"
             android:orientation="horizontal"
             android:paddingTop="10dp"
             android:paddingBottom="10dp"
@@ -224,16 +224,46 @@
             <ImageView
                 android:layout_width="36dp"
                 android:layout_height="36dp"
-                android:src="@drawable/ic_exit_to_app"/>
-            <TextView
-                android:textStyle="bold"
+                android:src="@drawable/ic_round_call_grey"/>
 
-                android:layout_gravity="center_vertical"
+            <TextView
                 android:layout_width="wrap_content"
+
                 android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
                 android:paddingLeft="20dp"
-                android:text="Logout"/>
+                android:text="Direct Call"
+                android:textStyle="bold" />
         </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/btnDirectSMS"
+            android:orientation="horizontal"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:paddingStart="25dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?android:attr/selectableItemBackground"
+            android:foreground="?android:attr/selectableItemBackground">
+            <ImageView
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:src="@drawable/baseline_textsms"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:paddingLeft="20dp"
+                android:text="Direct SMS"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+
     </LinearLayout>
 
 </LinearLayout>

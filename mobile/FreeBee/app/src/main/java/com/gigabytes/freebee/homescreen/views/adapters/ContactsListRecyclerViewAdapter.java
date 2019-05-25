@@ -81,6 +81,8 @@ public class ContactsListRecyclerViewAdapter extends RecyclerView.Adapter<Contac
         sb.append(" ");
         sb.append(contactsDO.getLastname());
 
+
+
         viewHolder.lblVolunteerName.setText(sb.toString());
         viewHolder.lblVolunteerOrganization.setText(contactsDO.getOrganization());
         viewHolder.lblVolunteerLocation.setText(contactsDO.getCity() + ", " + contactsDO.getCountry());

@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -36,6 +37,7 @@ public class ProfileActivity extends AppCompatActivity {
     @InjectView(R.id.lblCity) TextView lblCity;
     @InjectView(R.id.lblCountry) TextView lblCountry;
     @InjectView(R.id.lblMobileNo) TextView lblMobileNo;
+    @InjectView(R.id.buttonBackbutton) ImageButton buttonBackbutton;
 
     private final String USER_LIVE_NOTIFICATION_SESSION_COLLECTION = "UserLiveNotificationSession";
 
@@ -87,6 +89,10 @@ public class ProfileActivity extends AppCompatActivity {
         } else {
             lblMobileNo.setText(freeBeeApplication.mobileNumber);
         }
+
+        buttonBackbutton.setOnClickListener(v -> {
+            finish();
+        });
 
         btnBuyCredits.setOnClickListener(v -> {
             Intent creditsActivityIntent = new Intent(this, CreditsActivity.class);

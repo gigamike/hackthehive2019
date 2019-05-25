@@ -71,7 +71,8 @@
         <activity
             android:name=".homescreen.views.activities.DialerActivity"
             android:label="@string/title_activity_dialer"
-            android:theme="@style/AppTheme"></activity>
+            android:theme="@style/AppTheme" />
+        <activity android:name=".homescreen.views.activities.ViewOtherProfileActivity"></activity>
     </application>
 
 </manifest>

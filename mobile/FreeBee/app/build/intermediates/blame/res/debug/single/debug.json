@@ -76,6 +76,10 @@
         "source": "C:\\Users\\ONB-KRYSSEL\\.gradle\\caches\\transforms-1\\files-1.1\\android-dialer-1.2.5.aar\\292476c14a2c25f272fb8de04afd37d9\\res\\drawable-xxxhdpi-v4\\quantum_ic_mic_off_black_24.png"
     },
     {
+        "merged": "C:\\Users\\ONB-KRYSSEL\\Desktop\\hackthehive2019\\mobile\\FreeBee\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_round_call_grey.xml.flat",
+        "source": "C:\\Users\\ONB-KRYSSEL\\Desktop\\hackthehive2019\\mobile\\FreeBee\\app\\src\\main\\res\\drawable\\ic_round_call_grey.xml"
+    },
+    {
         "merged": "C:\\Users\\ONB-KRYSSEL\\Desktop\\hackthehive2019\\mobile\\FreeBee\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_met_ic_clear.png.flat",
         "source": "C:\\Users\\ONB-KRYSSEL\\.gradle\\caches\\transforms-1\\files-1.1\\library-2.0.3.aar\\e6c871723353d924d632f04a9fccc4b1\\res\\drawable-xhdpi-v4\\met_ic_clear.png"
     },
@@ -644,16 +648,16 @@
         "source": "C:\\Users\\ONB-KRYSSEL\\.gradle\\caches\\transforms-1\\files-1.1\\android-dialer-1.2.5.aar\\292476c14a2c25f272fb8de04afd37d9\\res\\drawable-hdpi-v4\\quantum_ic_play_arrow_white_24.png"
     },
     {
-        "merged": "C:\\Users\\ONB-KRYSSEL\\Desktop\\hackthehive2019\\mobile\\FreeBee\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v21_avd_show_password.xml.flat",
-        "source": "C:\\Users\\ONB-KRYSSEL\\.gradle\\caches\\transforms-1\\files-1.1\\design-28.0.0.aar\\51e84ab5d19251b6528466c5c938d435\\res\\drawable-v21\\avd_show_password.xml"
+        "merged": "C:\\Users\\ONB-KRYSSEL\\Desktop\\hackthehive2019\\mobile\\FreeBee\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_abc_btn_check_to_on_mtrl_015.png.flat",
+        "source": "C:\\Users\\ONB-KRYSSEL\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-28.0.0.aar\\63edb40d4f2331f213e3e8d31843f253\\res\\drawable-mdpi-v4\\abc_btn_check_to_on_mtrl_015.png"
     },
     {
         "merged": "C:\\Users\\ONB-KRYSSEL\\Desktop\\hackthehive2019\\mobile\\FreeBee\\app\\build\\intermediates\\res\\merged\\debug\\drawable-watch-v20_abc_dialog_material_background.xml.flat",
         "source": "C:\\Users\\ONB-KRYSSEL\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-28.0.0.aar\\63edb40d4f2331f213e3e8d31843f253\\res\\drawable-watch-v20\\abc_dialog_material_background.xml"
     },
     {
-        "merged": "C:\\Users\\ONB-KRYSSEL\\Desktop\\hackthehive2019\\mobile\\FreeBee\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_abc_btn_check_to_on_mtrl_015.png.flat",
-        "source": "C:\\Users\\ONB-KRYSSEL\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-28.0.0.aar\\63edb40d4f2331f213e3e8d31843f253\\res\\drawable-mdpi-v4\\abc_btn_check_to_on_mtrl_015.png"
+        "merged": "C:\\Users\\ONB-KRYSSEL\\Desktop\\hackthehive2019\\mobile\\FreeBee\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v21_avd_show_password.xml.flat",
+        "source": "C:\\Users\\ONB-KRYSSEL\\.gradle\\caches\\transforms-1\\files-1.1\\design-28.0.0.aar\\51e84ab5d19251b6528466c5c938d435\\res\\drawable-v21\\avd_show_password.xml"
     },
     {
         "merged": "C:\\Users\\ONB-KRYSSEL\\Desktop\\hackthehive2019\\mobile\\FreeBee\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4_ic_more_vert_black_24dp.png.flat",
@@ -706,6 +710,10 @@
     {
         "merged": "C:\\Users\\ONB-KRYSSEL\\Desktop\\hackthehive2019\\mobile\\FreeBee\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v23_abc_control_background_material.xml.flat",
         "source": "C:\\Users\\ONB-KRYSSEL\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-28.0.0.aar\\63edb40d4f2331f213e3e8d31843f253\\res\\drawable-v23\\abc_control_background_material.xml"
+    },
+    {
+        "merged": "C:\\Users\\ONB-KRYSSEL\\Desktop\\hackthehive2019\\mobile\\FreeBee\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_view_other_profile.xml.flat",
+        "source": "C:\\Users\\ONB-KRYSSEL\\Desktop\\hackthehive2019\\mobile\\FreeBee\\app\\src\\main\\res\\layout\\activity_view_other_profile.xml"
     },
     {
         "merged": "C:\\Users\\ONB-KRYSSEL\\Desktop\\hackthehive2019\\mobile\\FreeBee\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4_quantum_ic_camera_alt_white_48.png.flat",
@@ -1316,6 +1324,10 @@
         "source": "C:\\Users\\ONB-KRYSSEL\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-28.0.0.aar\\63edb40d4f2331f213e3e8d31843f253\\res\\drawable-v21\\abc_action_bar_item_background_material.xml"
     },
     {
+        "merged": "C:\\Users\\ONB-KRYSSEL\\Desktop\\hackthehive2019\\mobile\\FreeBee\\app\\build\\intermediates\\res\\merged\\debug\\drawable_baseline_voice_chat.xml.flat",
+        "source": "C:\\Users\\ONB-KRYSSEL\\Desktop\\hackthehive2019\\mobile\\FreeBee\\app\\src\\main\\res\\drawable\\baseline_voice_chat.xml"
+    },
+    {
         "merged": "C:\\Users\\ONB-KRYSSEL\\Desktop\\hackthehive2019\\mobile\\FreeBee\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_abc_btn_switch_to_on_mtrl_00012.9.png.flat",
         "source": "C:\\Users\\ONB-KRYSSEL\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-28.0.0.aar\\63edb40d4f2331f213e3e8d31843f253\\res\\drawable-hdpi-v4\\abc_btn_switch_to_on_mtrl_00012.9.png"
     },
@@ -1668,6 +1680,10 @@
         "source": "C:\\Users\\ONB-KRYSSEL\\.gradle\\caches\\transforms-1\\files-1.1\\android-dialer-1.2.5.aar\\292476c14a2c25f272fb8de04afd37d9\\res\\drawable-xhdpi-v4\\quantum_ic_info_outline_white_24.png"
     },
     {
+        "merged": "C:\\Users\\ONB-KRYSSEL\\Desktop\\hackthehive2019\\mobile\\FreeBee\\app\\build\\intermediates\\res\\merged\\debug\\drawable_baseline_arrow_back.xml.flat",
+        "source": "C:\\Users\\ONB-KRYSSEL\\Desktop\\hackthehive2019\\mobile\\FreeBee\\app\\src\\main\\res\\drawable\\baseline_arrow_back.xml"
+    },
+    {
         "merged": "C:\\Users\\ONB-KRYSSEL\\Desktop\\hackthehive2019\\mobile\\FreeBee\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_logo.png.flat",
         "source": "C:\\Users\\ONB-KRYSSEL\\.gradle\\caches\\transforms-1\\files-1.1\\android-sdk-1.0.1.aar\\13391ae404f6cfddd992322840aa28d7\\res\\drawable-mdpi-v4\\logo.png"
     },
@@ -1774,6 +1790,10 @@
     {
         "merged": "C:\\Users\\ONB-KRYSSEL\\Desktop\\hackthehive2019\\mobile\\FreeBee\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_abc_btn_switch_to_on_mtrl_00001.9.png.flat",
         "source": "C:\\Users\\ONB-KRYSSEL\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-28.0.0.aar\\63edb40d4f2331f213e3e8d31843f253\\res\\drawable-xhdpi-v4\\abc_btn_switch_to_on_mtrl_00001.9.png"
+    },
+    {
+        "merged": "C:\\Users\\ONB-KRYSSEL\\Desktop\\hackthehive2019\\mobile\\FreeBee\\app\\build\\intermediates\\res\\merged\\debug\\drawable_baseline_video_call.xml.flat",
+        "source": "C:\\Users\\ONB-KRYSSEL\\Desktop\\hackthehive2019\\mobile\\FreeBee\\app\\src\\main\\res\\drawable\\baseline_video_call.xml"
     },
     {
         "merged": "C:\\Users\\ONB-KRYSSEL\\Desktop\\hackthehive2019\\mobile\\FreeBee\\app\\build\\intermediates\\res\\merged\\debug\\layout_credits_list_item_menu.xml.flat",
@@ -3710,6 +3730,10 @@
     {
         "merged": "C:\\Users\\ONB-KRYSSEL\\Desktop\\hackthehive2019\\mobile\\FreeBee\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_notification_bg_low_normal.9.png.flat",
         "source": "C:\\Users\\ONB-KRYSSEL\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-28.0.0.aar\\ca7138de700f3a4bb8320f112f019b92\\res\\drawable-hdpi-v4\\notification_bg_low_normal.9.png"
+    },
+    {
+        "merged": "C:\\Users\\ONB-KRYSSEL\\Desktop\\hackthehive2019\\mobile\\FreeBee\\app\\build\\intermediates\\res\\merged\\debug\\drawable_baseline_textsms.xml.flat",
+        "source": "C:\\Users\\ONB-KRYSSEL\\Desktop\\hackthehive2019\\mobile\\FreeBee\\app\\src\\main\\res\\drawable\\baseline_textsms.xml"
     },
     {
         "merged": "C:\\Users\\ONB-KRYSSEL\\Desktop\\hackthehive2019\\mobile\\FreeBee\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4_abc_menu_hardkey_panel_mtrl_mult.9.png.flat",

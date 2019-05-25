@@ -84,7 +84,6 @@ public class ContactsListRecyclerViewAdapter extends RecyclerView.Adapter<Contac
         sb.append(" ");
         sb.append(contactsDO.getLastname());
 
-<<<<<<< HEAD
         FreeBeeApplication freeBeeApplication = (FreeBeeApplication) context.getApplicationContext();
 
         if(freeBeeApplication.userRole.equals("ofw")){
@@ -92,9 +91,6 @@ public class ContactsListRecyclerViewAdapter extends RecyclerView.Adapter<Contac
         }else{
             viewHolder.lblVolunteerOrganization.setVisibility(View.VISIBLE);
         }
-=======
-
->>>>>>> 2d934ebb82174c6a698a90eae22197bd7359b3fe
 
         viewHolder.lblVolunteerName.setText(sb.toString());
         viewHolder.lblVolunteerOrganization.setText(contactsDO.getOrganization());

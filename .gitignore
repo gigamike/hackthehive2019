@@ -3,7 +3,7 @@
 /mobile/FreeBee/*.iml
 /mobile/FreeBee/gradle
 /mobile/FreeBee/app/build
-/mobile/FreeBee/app/build/intermediates
+/mobile/FreeBee/app/build/intermediates/**
 /mobile/FreeBee/gradlew
 /mobile/FreeBee/gradlew.bat
 /mobile/FreeBee/local.properties

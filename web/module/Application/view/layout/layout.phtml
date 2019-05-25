@@ -1,0 +1,91 @@
+<?php echo $this->doctype(); ?>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <?php echo $this->headTitle($this->translate('Free Bee'))->setSeparator(' - ')->setAutoEscape(false) ?>
+        <?php echo $this->headMeta()
+            ->appendName('viewport', 'width=device-width, initial-scale=1, shrink-to-fit=no')
+            ->appendHttpEquiv('X-UA-Compatible', 'IE=edge')
+        ?>
+        <?php echo $this->headLink(array('rel' => 'shortcut icon', 'type' => 'image/vnd.microsoft.icon', 'href' => $this->basePath() . '/img/favicon.ico'))
+                        ->prependStylesheet($this->basePath() . '/css/style.css')
+                        ->prependStylesheet($this->basePath() . '/css/modern-business.css')
+                        ->prependStylesheet($this->basePath() . '/vendor/bootstrap/css/bootstrap.min.css') ?>
+    </head>
+    <body>
+      <!-- Navigation -->
+      <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+          <a class="navbar-brand" href="<?php echo $this->url('home'); ?>"><img src="/img/header-logo.png" alt="Free Bee Calls" title="Free Bee Calls" /></a>
+          <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="#">FAQs</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">How-To's</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Store Location</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Promos</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Partners</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="<?php echo $this->url('community'); ?>">Community</a>
+              </li>
+              <?php if ($user = $this->identity()): ?>
+              <li class="nav-item">
+                  <a class="nav-link" href="#">Credits</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="<?php echo $this->url('logout'); ?>">Logout</a>
+              </li>
+              <?php else: ?>
+              <li class="nav-item">
+                <a class="nav-link" href="<?php echo $this->url('login'); ?>">Login</a>
+              </li>
+              <?php endif; ?>
+              <li class="nav-item">
+                <a class="nav-link" href="<?php echo $this->url('api'); ?>">API</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <?php if($this->route == 'home'): ?>
+      <header>
+        <img src="/img/slider/slider1.jpg" class="img-fluid">
+      </header>
+      <?php endif; ?>
+
+        <div class="container">
+            <?php echo $this->content; ?>
+        </div> <!-- /container -->
+
+        <!-- Footer -->
+        <footer class="py-5 bg-dark">
+          <div class="container">
+            <p class="m-0 text-center">Copyright &copy; GigaBytes 2019</p>
+          </div>
+          <!-- /.container -->
+        </footer>
+
+        <?php echo $this->headScript()
+            ->prependFile($this->basePath() . '/vendor/bootstrap/js/bootstrap.bundle.min.js')
+            ->prependFile($this->basePath() . '/vendor/jquery/jquery.min.js')
+        ; ?>
+        <script type="text/javascript">
+        (function blink() {
+          $('.online').fadeOut(500).fadeIn(500, blink);
+        })();
+        </script>
+        <?php echo $this->inlineScript() ?>
+    </body>
+</html>

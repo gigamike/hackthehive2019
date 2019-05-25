@@ -1,19 +1,26 @@
 package com.gigabytes.freebee.homescreen.views.activities;
 
 import android.annotation.SuppressLint;
+import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.gigabytes.freebee.FreeBeeApplication;
 import com.gigabytes.freebee.R;
+import com.gigabytes.freebee.homescreen.views.model.SendMessageAPI;
+import com.gigabytes.freebee.login.views.activities.LoginActivity;
 import com.gigabytes.freebee.videocall.views.activities.VideoCallActivity;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -27,6 +34,11 @@ import java.util.List;
 import butterknife.ButterKnife;
 import butterknife.InjectView;
 import de.hdodenhof.circleimageview.CircleImageView;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 public class ViewOtherProfileActivity extends AppCompatActivity {
 
@@ -66,7 +78,12 @@ public class ViewOtherProfileActivity extends AppCompatActivity {
 
         lblCity.setText(viewOtherProfileIntent.getStringExtra("city"));
         lblCountry.setText(viewOtherProfileIntent.getStringExtra("country"));
-        lblMobileNo.setText(viewOtherProfileIntent.getStringExtra("mobileNumber"));
+
+        if(StringUtils.isBlank(viewOtherProfileIntent.getStringExtra("mobileNumber"))) {
+            lblMobileNo.setText("N/A");
+        } else {
+            lblMobileNo.setText(viewOtherProfileIntent.getStringExtra("mobileNumber"));
+        }
 
         boolean isOnline =  viewOtherProfileIntent.getBooleanExtra("isOnline", false);
 
@@ -149,13 +166,67 @@ public class ViewOtherProfileActivity extends AppCompatActivity {
         });
 
         btnDirectCall.setOnClickListener(v -> {
+            if (StringUtils.isBlank(calleeMobileNumber)) {
+                Toast.makeText(getApplicationContext(), "User is not available to call right now", Toast.LENGTH_LONG).show();
+                return;
+            }
+
             Intent callIntent = new Intent(Intent.ACTION_CALL);
             callIntent.setData(Uri.parse("tel:" + calleeMobileNumber));
             startActivity(callIntent);
         });
 
-        btnDirectSMS.setOnClickListener(v -> {
+        Dialog dialog = new Dialog(this);
+        dialog.setContentView(R.layout.sms_dialog_layout);
+        dialog.setTitle("SMS");
+        dialog.setCancelable(true);
 
+        ProgressDialog progressDialog = new ProgressDialog(this);
+        progressDialog.setIndeterminate(true);
+        progressDialog.setMessage("Sending Message...");
+        progressDialog.setCancelable(false);
+
+        EditText sendMessageEditText = dialog.findViewById(R.id.sendMessageEditText);
+
+        dialog.findViewById(R.id.buttonCancelBuyCreditsDialog).setOnClickListener(v -> {
+            dialog.dismiss();
+        });
+
+        dialog.findViewById(R.id.buttonSendMessage).setOnClickListener(v -> {
+
+            if(StringUtils.isBlank(sendMessageEditText.getText().toString())) {
+                Toast.makeText(getApplicationContext(), "Please compose a message", Toast.LENGTH_LONG).show();
+                return;
+            }
+
+            progressDialog.show();
+
+            Retrofit retrofit = new Retrofit.Builder()
+                    .baseUrl("https://hackthehive2019.gigamike.net/api/")
+                    .addConverterFactory(GsonConverterFactory.create())
+                    .build();
+
+            SendMessageAPI sendMessageAPI = retrofit.create(SendMessageAPI.class);
+
+            sendMessageAPI.sendMessage(callerId, calleeId, sendMessageEditText.getText().toString()).enqueue(new Callback<Void>() {
+                @Override
+                public void onResponse(Call<Void> call, Response<Void> response) {
+                    progressDialog.dismiss();
+                    dialog.dismiss();
+                    sendMessageEditText.setText(StringUtils.EMPTY);
+                    Toast.makeText(getApplicationContext(), "Successfully Sent Message", Toast.LENGTH_LONG).show();
+                }
+
+                @Override
+                public void onFailure(Call<Void> call, Throwable t) {
+                    t.printStackTrace();
+                }
+            });
+
+        });
+
+        btnDirectSMS.setOnClickListener(v -> {
+            dialog.show();
         });
 
     }

@@ -152,6 +152,10 @@ public class ContactsFragment extends Fragment {
 
                     for (OFW ofw : ofwList) {
 
+                        if(ofw.getId().equals(freeBeeApplication.userId)) {
+                            continue;
+                        }
+
                         ContactsDO contactsDO = new ContactsDO(
                                 ofw.getId(),
                                 ofw.getFirstName(),
@@ -191,6 +195,10 @@ public class ContactsFragment extends Fragment {
                     List<Volunteer> volunteerList = Objects.requireNonNull(response.body()).getResults();
 
                     for (Volunteer volunteer : volunteerList) {
+
+                        if(volunteer.getId().equals(freeBeeApplication.userId)) {
+                            continue;
+                        }
 
                         ContactsDO contactsDO = new ContactsDO(
                                 volunteer.getId(),
@@ -302,6 +310,7 @@ public class ContactsFragment extends Fragment {
         progressDialog.show();
 
         ContactsAPI contactsAPI = retrofit.create(ContactsAPI.class);
+        FreeBeeApplication freeBeeApplication = (FreeBeeApplication) getActivity().getApplication();
 
         Log.d("debug", "organizationID: " + organizationID);
         Log.d("debug", "countryCode: " + countryCode);
@@ -315,6 +324,10 @@ public class ContactsFragment extends Fragment {
                 List<ContactsDO> contactsDOList = new ArrayList<>();
 
                 for (Volunteer volunteer : volunteerList) {
+
+                    if(volunteer.getId().equals(freeBeeApplication.userId)) {
+                        continue;
+                    }
 
                     ContactsDO contactsDO = new ContactsDO(
                             volunteer.getId(),
@@ -352,6 +365,8 @@ public class ContactsFragment extends Fragment {
         progressDialog.show();
 
         ContactsAPI contactsAPI = retrofit.create(ContactsAPI.class);
+        FreeBeeApplication freeBeeApplication = (FreeBeeApplication) getActivity().getApplication();
+
         contactsAPI.getSearchedOFW(countryCode, city).enqueue(new Callback<OFWResponse>() {
             @Override
             public void onResponse(Call<OFWResponse> call, Response<OFWResponse> response) {
@@ -361,6 +376,10 @@ public class ContactsFragment extends Fragment {
                 List<ContactsDO> contactsDOList = new ArrayList<>();
 
                 for (OFW ofw : ofwList) {
+
+                    if(ofw.getId().equals(freeBeeApplication.userId)) {
+                        continue;
+                    }
 
                     ContactsDO contactsDO = new ContactsDO(
                             ofw.getId(),

@@ -15,6 +15,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 
+import com.gigabytes.freebee.FreeBeeApplication;
 import com.gigabytes.freebee.R;
 import com.gigabytes.freebee.homescreen.views.adapters.ContactsListRecyclerViewAdapter;
 import com.gigabytes.freebee.homescreen.views.model.ContactsAPI;
@@ -154,8 +155,13 @@ public class CoOfwFragment extends Fragment {
 
                 List<OFW> ofwList = Objects.requireNonNull(response.body()).getResults();
                 List<ContactsDO> contactsDOList = new ArrayList<>();
+                FreeBeeApplication freeBeeApplication = (FreeBeeApplication)getActivity().getApplication();
 
                 for (OFW ofw : ofwList) {
+
+                    if(ofw.getId().equals(freeBeeApplication.userId)) {
+                        continue;
+                    }
 
                     ContactsDO contactsDO = new ContactsDO(
                             ofw.getId(),
@@ -201,7 +207,13 @@ public class CoOfwFragment extends Fragment {
                 List<OFW> ofwList = response.body().getResults();
                 List<ContactsDO> contactsDOList = new ArrayList<>();
 
+                FreeBeeApplication freeBeeApplication = (FreeBeeApplication)getActivity().getApplication();
+
                 for (OFW ofw : ofwList) {
+
+                    if(ofw.getId().equals(freeBeeApplication.userId)) {
+                        continue;
+                    }
 
                     ContactsDO contactsDO = new ContactsDO(
                             ofw.getId(),

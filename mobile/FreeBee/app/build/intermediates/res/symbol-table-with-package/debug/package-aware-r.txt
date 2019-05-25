@@ -1469,6 +1469,7 @@ id buttonCancelCalling
 id buttonCancelPaymentTransaction
 id buttonEndCall
 id buttonPanel
+id buttonSendMessage
 id buttonShowCredits
 id buttonSwitchCamera
 id buttonTurnOffMicrophone
@@ -1594,6 +1595,7 @@ id imageHolder
 id imageView
 id imgProfilePic
 id imgVolunteerProfilePic
+id includeSMSCheckbox
 id info
 id invisible
 id invoiceView
@@ -1707,6 +1709,7 @@ id search_suggestions_section
 id search_voice_btn
 id select_dialog_listview
 id selected
+id sendMessageEditText
 id seven
 id shortcut
 id showCustom
@@ -1925,6 +1928,7 @@ layout search_suggestions_section
 layout select_dialog_item_material
 layout select_dialog_multichoice_material
 layout select_dialog_singlechoice_material
+layout sms_dialog_layout
 layout support_simple_spinner_dropdown_item
 layout volunteer
 layout zxing_barcode_scanner

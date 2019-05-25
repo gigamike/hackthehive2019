@@ -12,7 +12,6 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -34,7 +33,6 @@ import com.gigabytes.freebee.registration.models.CountriesResponse;
 import com.gigabytes.freebee.registration.models.Organizations;
 import com.gigabytes.freebee.registration.models.OrganizationsResponse;
 import com.gigabytes.freebee.registration.models.RegistrationAPI;
-import com.gigabytes.freebee.registration.views.VolunteerActivity;
 import com.squareup.picasso.Picasso;
 import com.weiwangcn.betterspinner.library.material.MaterialBetterSpinner;
 
@@ -138,90 +136,7 @@ public class ContactsFragment extends Fragment {
         loadOrganizations();
         loadCountries();
 
-<<<<<<< HEAD
-        ContactsAPI contactsAPI = retrofit.create(ContactsAPI.class);
-        if (freeBeeApplication.userRole.equals("volunteer")) {
-
-            progressDialog.setMessage("Loading ofws...");
-            progressDialog.show();
-
-            contactsAPI.getAllOFW().enqueue(new Callback<OFWResponse>() {
-                @Override
-                public void onResponse(Call<OFWResponse> call, Response<OFWResponse> response) {
-                    progressDialog.dismiss();
-
-                    List<OFW> ofwList = response.body().getResults();
-                    List<ContactsDO> contactsDOList = new ArrayList<>();
-
-                    for (OFW ofw : ofwList) {
-
-                        if(ofw.getId().equals(freeBeeApplication.userId)) {
-                            continue;
-                        }
-
-                        ContactsDO contactsDO = new ContactsDO(
-                                ofw.getId(),
-                                ofw.getFirstName(),
-                                ofw.getMiddleName(),
-                                ofw.getLastName(),
-                                ofw.getOrganization(),
-                                ofw.getProfilePic(),
-                                ofw.getCountry(),
-                                ofw.getCity(),
-                                ofw.isOnline(),
-                                ofw.getDistance(),
-                                ofw.getMobileNumber()
-                        );
-
-                        contactsDOList.add(contactsDO);
-                        Log.d("debug","contact " + contactsDO);
-                    }
-
-                    recyclerView.setAdapter(new ContactsListRecyclerViewAdapter(contactsDOList, getContext()));
-                }
-
-                @Override
-                public void onFailure(Call<OFWResponse> call, Throwable t) {
-                    t.printStackTrace();
-                }
-            });
-
-        } else if (freeBeeApplication.userRole.equals("ofw")) {
-            progressDialog.setMessage("Loading volunteers...");
-            progressDialog.show();
-
-            contactsAPI.getAllVolunteer().enqueue(new Callback<VolunteerResponse>() {
-                @Override
-                public void onResponse(Call<VolunteerResponse> call, Response<VolunteerResponse> response) {
-                    progressDialog.dismiss();
-
-                    List<Volunteer> volunteerList = Objects.requireNonNull(response.body()).getResults();
-
-                    for (Volunteer volunteer : volunteerList) {
-
-                        if(volunteer.getId().equals(freeBeeApplication.userId)) {
-                            continue;
-                        }
-
-                        ContactsDO contactsDO = new ContactsDO(
-                                volunteer.getId(),
-                                volunteer.getFirstname(),
-                                volunteer.getMiddlename(),
-                                volunteer.getLastname(),
-                                volunteer.getOrganization(),
-                                volunteer.getProfilePic(),
-                                volunteer.getCountry(),
-                                volunteer.getCity(),
-                                volunteer.isOnline(),
-                                volunteer.getDistance(),
-                                volunteer.getMobileNumber()
-                        );
-
-                        contactsDOList.add(contactsDO);
-                    }
-=======
         detectRoleToShowList(freeBeeApplication, progressDialog);
->>>>>>> 5b6b0bc6219a2c338ea605f18c8280603fe89f2a
 
         swipeContacts.setOnRefreshListener(() -> {
             detectRoleToShowList(freeBeeApplication, progressDialog);

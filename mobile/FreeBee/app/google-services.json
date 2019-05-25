@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "174163563250",
+    "firebase_url": "https://freebee-13ab7.firebaseio.com",
+    "project_id": "freebee-13ab7",
+    "storage_bucket": "freebee-13ab7.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:174163563250:android:1ceb6f439d84c069",
+        "android_client_info": {
+          "package_name": "com.gigabytes.freebee"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "174163563250-agcjuqv6pkta9iqffh6v3t69p3gk1dqd.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.gigabytes.freebee",
+            "certificate_hash": "b1bb1032bbd0fc4503208bc84bf4f36c174ce981"
+          }
+        },
+        {
+          "client_id": "174163563250-uoi7k1u20ej15nt3qneag8do31t8atjp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAMpf7v2tUyCTIS98kZdEvWGXZpBGwjess"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "174163563250-uoi7k1u20ej15nt3qneag8do31t8atjp.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

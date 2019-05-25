@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:drawable="@color/transparent" />
+
+    <item android:width="96px"
+        android:height="96px"
+        android:gravity="center">
+        <bitmap android:src="@drawable/bitcoin_logo" />
+    </item>
+
+</layer-list>

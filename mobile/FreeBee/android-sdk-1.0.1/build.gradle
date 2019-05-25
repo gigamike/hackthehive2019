@@ -1,0 +1,4 @@
+configurations.maybeCreate("default")
+artifacts.add("default", file('android-sdk-1.0.1.aar'))
+dependencies {
+}

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div {
+            width: 200px;
+            height: 600px;
+
+            position:absolute; /*it can be fixed too*/
+            left:0; right:0;
+            top:0; bottom:0;
+            margin:auto;
+
+            /*this to solve "the content will not be cut when the window is smaller than the content": */
+            max-width:100%;
+            max-height:100%;
+        }
+    </style>
+</head>
+    <body>
+        <div>
+            <form action="https://test.bitpay.com/checkout" method="post">
+                <input type="hidden" name="action" value="checkout" />
+                <input type="hidden" name="posData" value="" />
+                <input type="hidden" name="data" value="q4gMfmdurqEjLqDsAXtyYxkIwAwgr/a2qgzx3BU6QWPtv/dsu9ZRlBiJjXgvNZqHUs1aigdlQiEFryBSChcXGh5SrrNEqwcRizYxNMoucd2/ODNESfEPf6CzGYmLi7+ozFsAWEHFnEuP+ZyNEjX6CnuZtuEDavyunGq+iuBBF5L97PaXJsXGEePDZWxRrqnjVh321CBHXbu93lfJ6huYP0Pea6PQRDfMHp0E+JEKwCVmsN/50BdYG9WwlJnaBTwgitsgub+09ktVZSjMBt1CGy686f55MFXKnCqQmF5A9cVAUVHkpJqdB66ndPDhRKnmg6RY0lLcHKMNEVr6nhOBOTR+0mLeZNQTVBLlXbW35mKbjnoGpDP8e7n//X0qDzQIZFgfrswmoIkPWiRujMMnOdd5joOobNmKrFlgCMzlNZ4+6gyGXlKGOKgMHHB5lLMq" />
+                <input type="image" src="https://test.bitpay.com/cdn/en_US/bp-btn-pay-currencies.svg" name="submit" style="width: 210px" alt="BitPay, the easy way to pay with bitcoins.">
+            </form>
+        </div>
+    </body>
+</html>

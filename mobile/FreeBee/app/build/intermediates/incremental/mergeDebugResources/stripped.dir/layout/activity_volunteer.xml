@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:fitsSystemWindows="true"
+    android:background="@drawable/background_image_gradient">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fitsSystemWindows="true">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:paddingLeft="26dp"
+            android:paddingRight="26dp"
+            android:overScrollMode="ifContentScrolls"
+            android:background="@drawable/background_image_opacity">
+
+            <TextView
+                android:id="@+id/btnGoToLoginPage"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="30dp"
+                android:text="Log In"
+                android:gravity="top|end"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="@color/colorYellow"/>
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:text="Registration\nVolunteer"
+                android:gravity="left"
+                android:textStyle="bold"
+                android:textSize="35sp"
+                android:textColor="@color/colorWhite"/>
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/previewImage"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_gravity="center_horizontal"
+                android:scaleType="centerCrop"
+                app:civ_border_width="2dp"
+                app:civ_border_color="@color/colorPrimary"
+                android:src="@drawable/no_image"/>
+
+            <Button
+                android:id="@+id/btnChoosePicture"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Pick Image"
+                android:layout_marginTop="5dp"
+                android:textColor="@color/colorWhite"
+                android:background="@drawable/rounded_buttons"/>
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <EditText
+                    android:id="@+id/frmRegister_txtEmail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textEmailAddress"
+                    android:hint="Email Address"
+                    android:maxLength="62"/>
+
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <EditText
+                    android:id="@+id/frmRegister_txtPassword"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPassword"
+                    android:hint="Password"
+                    android:maxLength="16"/>
+
+            </android.support.design.widget.TextInputLayout>
+
+            <com.weiwangcn.betterspinner.library.material.MaterialBetterSpinner
+                android:id="@+id/frmRegister_cmbOrganization"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Organization"
+                app:met_floatingLabel="normal"
+                app:met_baseColor="@color/colorWhite"
+                app:met_textColor="@color/colorWhite"
+                app:met_textColorHint="@color/colorWhite"/>
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <EditText
+                    android:id="@+id/frmRegister_txtFirstname"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textCapWords"
+                    android:maxLength="50"
+                    android:hint="First Name" />
+
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <EditText
+                    android:id="@+id/frmRegister_txtMiddleInitial"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textCapWords"
+                    android:maxLength="24"
+                    android:hint="Middle Initial"/>
+
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <EditText
+                    android:id="@+id/frmRegister_txtLastname"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textCapWords"
+                    android:hint="Last Name"
+                    android:maxLength="50"/>
+
+            </android.support.design.widget.TextInputLayout>
+
+            <com.weiwangcn.betterspinner.library.material.MaterialBetterSpinner
+                android:id="@+id/frmRegister_cmbCurrentCountry"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Current Country"
+                app:met_floatingLabel="normal"
+                app:met_baseColor="@color/colorWhite"
+                app:met_textColor="@color/colorWhite"
+                app:met_textColorHint="@color/colorWhite"/>
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <EditText
+                    android:id="@+id/frmRegister_txtCurrentCity"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textCapWords"
+                    android:maxLength="50"
+                    android:hint="Current City"/>
+
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <EditText
+                    android:id="@+id/frmRegister_txtMobileNumber"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="phone"
+                    android:hint="Mobile Number"/>
+
+            </android.support.design.widget.TextInputLayout>
+
+            <RadioButton
+                android:id="@+id/radioButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:text="I have read and agree with Privacy Policy"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:textSize="15sp"/>
+
+            <android.support.v7.widget.AppCompatButton
+                android:id="@+id/btnCreateVolunteer"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:padding="16dp"
+                android:textColor="@color/colorWhite"
+                android:text="Create"
+                android:textSize="15sp"
+                android:background="@drawable/rounded_buttons"/>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</FrameLayout>

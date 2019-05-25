@@ -12,9 +12,9 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.gigabytes.freebee.FreeBeeApplication;
 import com.gigabytes.freebee.R;
@@ -25,9 +25,7 @@ import com.gigabytes.freebee.login.models.OFW;
 import com.gigabytes.freebee.login.models.OFWResponse;
 import com.gigabytes.freebee.registration.models.Countries;
 import com.gigabytes.freebee.registration.models.CountriesResponse;
-import com.gigabytes.freebee.registration.models.Organizations;
 import com.gigabytes.freebee.registration.models.RegistrationAPI;
-import com.gigabytes.freebee.registration.views.OFWActivity;
 import com.weiwangcn.betterspinner.library.material.MaterialBetterSpinner;
 
 import java.util.ArrayList;
@@ -42,11 +40,7 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-/**
- * A simple {@link Fragment} subclass.
- */
 public class CoOfwFragment extends Fragment {
-
     @InjectView(R.id.coOfwRecyclerView) RecyclerView coOfwRecyclerView;
     @InjectView(R.id.swipeCoOFW) SwipeRefreshLayout swipeCoOFW;
 
@@ -165,27 +159,31 @@ public class CoOfwFragment extends Fragment {
                 List<ContactsDO> contactsDOList = new ArrayList<>();
                 FreeBeeApplication freeBeeApplication = (FreeBeeApplication)getActivity().getApplication();
 
-                for (OFW ofw : ofwList) {
+                if(ofwList == null){
+                    Toast.makeText(getContext(), "Unfortunately I could not find any results matching your search", Toast.LENGTH_LONG).show();
+                }else{
+                    for (OFW ofw : ofwList) {
 
-                    if(ofw.getId().equals(freeBeeApplication.userId)) {
-                        continue;
+                        if(ofw.getId().equals(freeBeeApplication.userId)) {
+                            continue;
+                        }
+
+                        ContactsDO contactsDO = new ContactsDO(
+                                ofw.getId(),
+                                ofw.getFirstName(),
+                                ofw.getMiddleName(),
+                                ofw.getLastName(),
+                                ofw.getOrganization(),
+                                ofw.getProfilePic(),
+                                ofw.getCountry(),
+                                ofw.getCity(),
+                                ofw.isOnline(),
+                                ofw.getDistance(),
+                                ofw.getMobileNumber());
+
+                        contactsDOList.add(contactsDO);
+                        Log.d("debug","contact " + contactsDO);
                     }
-
-                    ContactsDO contactsDO = new ContactsDO(
-                            ofw.getId(),
-                            ofw.getFirstName(),
-                            ofw.getMiddleName(),
-                            ofw.getLastName(),
-                            ofw.getOrganization(),
-                            ofw.getProfilePic(),
-                            ofw.getCountry(),
-                            ofw.getCity(),
-                            ofw.isOnline(),
-                            ofw.getDistance(),
-                            ofw.getMobileNumber());
-
-                    contactsDOList.add(contactsDO);
-                    Log.d("debug","contact " + contactsDO);
                 }
 
                 coOfwRecyclerView.setAdapter(new ContactsListRecyclerViewAdapter(contactsDOList, getContext()));

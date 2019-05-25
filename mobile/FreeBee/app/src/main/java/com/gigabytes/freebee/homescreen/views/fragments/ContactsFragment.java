@@ -288,27 +288,31 @@ public class ContactsFragment extends Fragment {
                 List<OFW> ofwList = Objects.requireNonNull(response.body()).getResults();
                 List<ContactsDO> contactsDOList = new ArrayList<>();
 
-                for (OFW ofw : ofwList) {
+                if(ofwList == null){
+                    Toast.makeText(getContext(), "Unfortunately I could not find any results matching your search", Toast.LENGTH_LONG).show();
+                }else{
+                    for (OFW ofw : ofwList) {
 
-                    if(ofw.getId().equals(freeBeeApplication.userId)) {
-                        continue;
+                        if(ofw.getId().equals(freeBeeApplication.userId)) {
+                            continue;
+                        }
+
+                        ContactsDO contactsDO = new ContactsDO(
+                                ofw.getId(),
+                                ofw.getFirstName(),
+                                ofw.getMiddleName(),
+                                ofw.getLastName(),
+                                ofw.getOrganization(),
+                                ofw.getProfilePic(),
+                                ofw.getCountry(),
+                                ofw.getCity(),
+                                ofw.isOnline(),
+                                ofw.getDistance(),
+                                ofw.getMobileNumber());
+
+                        contactsDOList.add(contactsDO);
+                        Log.d("debug","contact " + contactsDO);
                     }
-
-                    ContactsDO contactsDO = new ContactsDO(
-                            ofw.getId(),
-                            ofw.getFirstName(),
-                            ofw.getMiddleName(),
-                            ofw.getLastName(),
-                            ofw.getOrganization(),
-                            ofw.getProfilePic(),
-                            ofw.getCountry(),
-                            ofw.getCity(),
-                            ofw.isOnline(),
-                            ofw.getDistance(),
-                            ofw.getMobileNumber());
-
-                    contactsDOList.add(contactsDO);
-                    Log.d("debug","contact " + contactsDO);
                 }
 
                 recyclerView.setAdapter(new ContactsListRecyclerViewAdapter(contactsDOList, getContext()));

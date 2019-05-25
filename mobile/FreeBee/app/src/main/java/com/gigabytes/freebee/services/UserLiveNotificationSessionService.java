@@ -84,6 +84,7 @@ public class UserLiveNotificationSessionService extends Service {
                                                                                 queryDocumentSnapshots.getDocuments().get(0).getBoolean("isOnCall")) {
 
                                                                             String callerId = queryDocumentSnapshots.getDocuments().get(0).getString("callerId");
+                                                                            boolean isVoiceCall = queryDocumentSnapshots.getDocuments().get(0).getBoolean("isVoiceCall");
 
                                                                             db.collection(USER_LIVE_NOTIFICATION_SESSION_COLLECTION)
                                                                                     .whereEqualTo(USER_ID, callerId)
@@ -101,6 +102,10 @@ public class UserLiveNotificationSessionService extends Service {
                                                                                 intent.putExtra("callerId", queryDocumentSnapshots.getDocuments().get(0).getString("callerId"));
                                                                                 intent.putExtra("userPictureURL", userPictureURL);
                                                                                 intent.putExtra("fullName", fullName);
+
+                                                                                if(isVoiceCall) {
+                                                                                    intent.putExtra("isVoiceCall", true);
+                                                                                }
 
                                                                                 startActivity(intent);
 

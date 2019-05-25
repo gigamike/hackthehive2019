@@ -29,14 +29,13 @@ import pub.devrel.easypermissions.EasyPermissions;
 
 public class CallFragment extends Fragment {
 
-    private static final int RC_APP_CONTACT_PERM = 100;
-
     private FloatingActionButton dialerFloatingActionButton;
     private RecyclerView contactsRecyclerView;
     private View view;
 
     public static CallFragment createInstance() {
-        return new CallFragment();
+        CallFragment callFragment = new CallFragment();
+        return callFragment;
     }
 
     private void getContactList() {
@@ -87,17 +86,6 @@ public class CallFragment extends Fragment {
         EasyPermissions.onRequestPermissionsResult(requestCode, permissions, grantResults, this);
     }
 
-    @AfterPermissionGranted(RC_APP_CONTACT_PERM)
-    private void requestPermissions() {
-        String[] perms = { Manifest.permission.READ_CONTACTS, Manifest.permission.WRITE_CONTACTS, Manifest.permission.CALL_PHONE};
-        if (EasyPermissions.hasPermissions(this.getActivity(), perms)) {
-            getContactList();
-        }
-        else {
-            EasyPermissions.requestPermissions(this, "This app needs access to your camera and mic to make video calls", RC_APP_CONTACT_PERM, perms);
-        }
-    }
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -108,7 +96,7 @@ public class CallFragment extends Fragment {
                              Bundle savedInstanceState) {
 
         view = inflater.inflate(R.layout.call_fragment, container, false);
-        requestPermissions();
+        getContactList();
 
         return view;
     }

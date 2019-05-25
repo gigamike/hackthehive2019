@@ -162,7 +162,70 @@ public class ViewOtherProfileActivity extends AppCompatActivity {
         });
 
         btnVoiceCall.setOnClickListener(v -> {
+            FirebaseFirestore db = FirebaseFirestore.getInstance();
+            FirebaseFirestoreSettings settings = new FirebaseFirestoreSettings.Builder()
+                    .setPersistenceEnabled(false)
+                    .build();
+            db.setFirestoreSettings(settings);
 
+            if(isOnline) {
+
+                ProgressDialog callingProgressDialog = new ProgressDialog(this);
+
+                callingProgressDialog.setIndeterminate(true);
+                callingProgressDialog.setMessage("Please wait...");
+                callingProgressDialog.setCancelable(false);
+                callingProgressDialog.show();
+
+                db.collection(USER_LIVE_NOTIFICATION_SESSION_COLLECTION)
+                        .whereEqualTo("userId", calleeId).get().addOnCompleteListener(command -> {
+
+                    List<DocumentSnapshot> documentList = command.getResult().getDocuments();
+
+                    if (documentList == null || documentList.isEmpty()) {
+                        Toast.makeText(this, "Cannot call, User is offline", Toast.LENGTH_LONG).show();
+                    }
+
+                    DocumentSnapshot documentSnapshot = documentList.get(0);
+
+                    if (!documentSnapshot.getBoolean("isOnCall")) {
+
+                        db.collection(USER_LIVE_NOTIFICATION_SESSION_COLLECTION)
+                                .document(callerId)
+                                .update("isOnCall", true).addOnSuccessListener(command1 -> {
+                            db.collection(USER_LIVE_NOTIFICATION_SESSION_COLLECTION)
+                                    .document(calleeId)
+                                    .update("isOnCall", true).addOnSuccessListener(command2 -> {
+
+                                callingProgressDialog.dismiss();
+
+                                Intent videoCallActivityIntent = new Intent(this, VideoCallActivity.class);
+
+                                videoCallActivityIntent.putExtra(VideoCallActivity.USER_CALL_ROLE, VideoCallActivity.USER_CALLER);
+
+                                videoCallActivityIntent.putExtra("userId", callerId);
+                                videoCallActivityIntent.putExtra("calleeId", calleeId);
+                                videoCallActivityIntent.putExtra("userPictureURL", calleeUserPictureURL);
+                                videoCallActivityIntent.putExtra("fullName", calleeFullName);
+                                videoCallActivityIntent.putExtra("isVoiceCall", true);
+
+                                Log.d("debug", "called by " + callerId);
+                                Log.d("debug", "calling user id " + calleeId);
+
+                                startActivity(videoCallActivityIntent);
+                            });
+                        });
+
+                    } else {
+                        callingProgressDialog.dismiss();
+                        Toast.makeText(this, "Cannot call, User is on call", Toast.LENGTH_LONG).show();
+                    }
+
+                });
+
+            } else {
+                Toast.makeText(this, "User is offline", Toast.LENGTH_LONG).show();
+            }
         });
 
         btnDirectCall.setOnClickListener(v -> {

@@ -28,7 +28,7 @@
         android:layout_marginTop="36dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
-        android:background="@color/colorPrimary"
+        android:background="@drawable/rounded_buttons"
         android:text="Credits: 100.00"
         android:textAllCaps="false"
         android:textColor="#541d01"

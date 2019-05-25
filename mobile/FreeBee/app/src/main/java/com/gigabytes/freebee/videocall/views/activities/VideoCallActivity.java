@@ -172,7 +172,8 @@ public class VideoCallActivity extends AppCompatActivity implements Session.Sess
                                 .collection(IS_ON_CALL_LISTENER)
                                 .document(isOnCallListenerId)
                                 .update("callerId", "",
-                                        "isOnCall", false);
+                                        "isOnCall", false,
+                                        "isVoiceCall", false);
                     });
 
             db.collection(USER_LIVE_NOTIFICATION_SESSION_COLLECTION)
@@ -241,7 +242,8 @@ public class VideoCallActivity extends AppCompatActivity implements Session.Sess
                                 .collection(IS_ON_CALL_LISTENER)
                                 .document(isOnCallListenerId)
                                 .update("callerId", "",
-                                        "isOnCall", false);
+                                        "isOnCall", false,
+                                        "isVoiceCall", false);
                     });
 
             db.collection(USER_LIVE_NOTIFICATION_SESSION_COLLECTION)
@@ -638,7 +640,8 @@ public class VideoCallActivity extends AppCompatActivity implements Session.Sess
                                     .collection("IsOnCallListener")
                                     .document(documentIsOnCallListenerId)
                                     .update("isOnCall", true,
-                                            "callerId", userid);
+                                            "callerId", userid,
+                                            "isVoiceCall", videoCallActivityIntent.getBooleanExtra("isVoiceCall", false));
 
                         });
 
@@ -983,15 +986,44 @@ public class VideoCallActivity extends AppCompatActivity implements Session.Sess
             subscriberViewContainer.addView(userSubscriber.getView());
 
             Intent videoCallActivityIntent = getIntent();
+            boolean isVoiceCall = videoCallActivityIntent.getBooleanExtra("isVoiceCall", false);
+
+            Log.d("debug", "is voice call " + isVoiceCall);
+
+            if(isVoiceCall) {
+                userPublisher.setPublishVideo(false);
+                userPublisher.setPublishAudio(true);
+
+                userSubscriber.setSubscribeToVideo(false);
+                userSubscriber.setSubscribeToAudio(true);
+            } else {
+                userPublisher.setPublishVideo(true);
+                userSubscriber.setSubscribeToVideo(true);
+            }
 
             if(videoCallActivityIntent.getStringExtra(USER_CALL_ROLE).equals(USER_CALLEE)) {
-                onCallConstraintLayout.setVisibility(View.GONE);
+                Log.d("debug", "onstream received USER_CALLEE");
+                if (isVoiceCall) {
+                    TextView textCallMessage = onCallConstraintLayout.findViewById(R.id.textCallMessage);
+                    textCallMessage.setText("Connected...");
+                } else {
+                    onCallConstraintLayout.setVisibility(View.GONE);
+                    videoCallConstraintLayout.setVisibility(View.VISIBLE);
+                }
             } else if(videoCallActivityIntent.getStringExtra(USER_CALL_ROLE).equals(USER_CALLER)) {
-                callingConstraintLayout.setVisibility(View.GONE);
+                Log.d("debug", "onstream received CALLER");
+                if(isVoiceCall) {
+                    Log.d("debug", "voice call on stream received");
+                    TextView textCallingMessage = callingConstraintLayout.findViewById(R.id.textCallingMessage);
+                    textCallingMessage.setText("Connected...");
+                } else {
+                    callingConstraintLayout.setVisibility(View.GONE);
+                    videoCallConstraintLayout.setVisibility(View.VISIBLE);
+                }
+
             }
 
             isCallStarted = true;
-            videoCallConstraintLayout.setVisibility(View.VISIBLE);
         }
     }
 

@@ -1217,6 +1217,7 @@ drawable background_android
 drawable background_image_gradient
 drawable background_image_opacity
 drawable baseline_dialpad
+drawable baseline_history
 drawable bitcoin_logo
 drawable btn_dialpad_key
 drawable common_full_open_on_phone
@@ -1462,6 +1463,7 @@ id buttonTurnOffMicrophone
 id buyCreditsTextView
 id buyLogoItemMenu
 id buyMenuTextView
+id callHistoryTextview
 id cancel_action
 id cardView_volunteer
 id center
@@ -1562,6 +1564,9 @@ id groups
 id heading
 id heading_layout
 id highlight
+id historyCallerNameTextView
+id historyItemCardView
+id historyRecyclerview
 id home
 id homeAsUp
 id icon
@@ -1729,7 +1734,6 @@ id textSpacerNoTitle
 id textStart
 id textUserCaller
 id textUserCalling
-id textView2
 id textView3
 id textView4
 id textView5
@@ -1877,6 +1881,7 @@ layout dialpad_view
 layout dialpad_view_unthemed
 layout floating_search_layout
 layout history_fragment
+layout history_layout_list_item
 layout mtrl_layout_snackbar
 layout mtrl_layout_snackbar_include
 layout notification_action

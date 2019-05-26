@@ -16,6 +16,11 @@ public interface ContactsAPI {
             @Query("country_code") String countryCode,
             @Query("city_keyword") String city);
 
+    @GET("volunteers")
+    Call<VolunteerResponse> searchVolunteerWithoutOrganization(
+            @Query("country_code") String countryCode,
+            @Query("city_keyword") String city);
+
     @GET("ofws")
     Call<OFWResponse> getAllOFW();
 

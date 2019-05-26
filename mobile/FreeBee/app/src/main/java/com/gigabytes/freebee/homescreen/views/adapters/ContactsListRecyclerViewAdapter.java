@@ -80,8 +80,6 @@ public class ContactsListRecyclerViewAdapter extends RecyclerView.Adapter<Contac
         StringBuilder sb = new StringBuilder();
         sb.append(contactsDO.getFirstname());
         sb.append(" ");
-        sb.append(contactsDO.getMiddlename());
-        sb.append(" ");
         sb.append(contactsDO.getLastname());
 
         FreeBeeApplication freeBeeApplication = (FreeBeeApplication) context.getApplicationContext();

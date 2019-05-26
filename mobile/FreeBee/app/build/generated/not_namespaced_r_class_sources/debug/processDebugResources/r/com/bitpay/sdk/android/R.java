@@ -28,29 +28,29 @@ public final class R {
         private drawable() {}
 
         public static final int accept_btc = 0x7f07005b;
-        public static final int logo = 0x7f0700b2;
-        public static final int roundedbutton = 0x7f070110;
-        public static final int roundedbutton_gray = 0x7f070111;
+        public static final int logo = 0x7f0700b3;
+        public static final int roundedbutton = 0x7f070111;
+        public static final int roundedbutton_gray = 0x7f070112;
     }
     public static final class id {
         private id() {}
 
         public static final int address = 0x7f08001e;
         public static final int bitpay_scrollView = 0x7f08002a;
-        public static final int conversion = 0x7f080066;
+        public static final int conversion = 0x7f080067;
         public static final int imageHolder = 0x7f0800c2;
         public static final int imageView = 0x7f0800c3;
-        public static final int invoiceView = 0x7f0800c9;
-        public static final int launchWallet = 0x7f0800ce;
-        public static final int loadingQr = 0x7f0800e4;
-        public static final int price = 0x7f08010b;
-        public static final int progressBar = 0x7f08010d;
-        public static final int qr = 0x7f080111;
-        public static final int qrContainer = 0x7f080112;
-        public static final int refund = 0x7f080116;
-        public static final int showQr = 0x7f08013e;
-        public static final int status = 0x7f080151;
-        public static final int timeRemaining = 0x7f080174;
+        public static final int invoiceView = 0x7f0800ca;
+        public static final int launchWallet = 0x7f0800cf;
+        public static final int loadingQr = 0x7f0800e8;
+        public static final int price = 0x7f08010f;
+        public static final int progressBar = 0x7f080111;
+        public static final int qr = 0x7f080115;
+        public static final int qrContainer = 0x7f080116;
+        public static final int refund = 0x7f08011a;
+        public static final int showQr = 0x7f080142;
+        public static final int status = 0x7f080155;
+        public static final int timeRemaining = 0x7f080179;
     }
     public static final class layout {
         private layout() {}

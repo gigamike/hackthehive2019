@@ -11,7 +11,7 @@
         android:id="@+id/CallingConstraintLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/colorYellow"
+        android:background="@drawable/call_image_gradient"
         android:visibility="gone">
 
         <de.hdodenhof.circleimageview.CircleImageView
@@ -82,7 +82,7 @@
         android:id="@+id/OnCallConstraintLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/colorYellow"
+        android:background="@drawable/call_image_gradient"
         android:visibility="visible">
 
         <de.hdodenhof.circleimageview.CircleImageView

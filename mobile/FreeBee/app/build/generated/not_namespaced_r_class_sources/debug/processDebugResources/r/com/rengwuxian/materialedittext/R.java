@@ -372,8 +372,8 @@ public final class R {
         public static final int abc_textfield_search_activated_mtrl_alpha = 0x7f070057;
         public static final int abc_textfield_search_default_mtrl_alpha = 0x7f070058;
         public static final int abc_textfield_search_material = 0x7f070059;
-        public static final int met_ic_clear = 0x7f0700b4;
-        public static final int met_ic_close = 0x7f0700b5;
+        public static final int met_ic_clear = 0x7f0700b5;
+        public static final int met_ic_close = 0x7f0700b6;
     }
     public static final class id {
         private id() {}
@@ -394,52 +394,52 @@ public final class R {
         public static final int activity_chooser_view_content = 0x7f08001c;
         public static final int always = 0x7f080023;
         public static final int beginning = 0x7f080027;
-        public static final int checkbox = 0x7f080057;
-        public static final int collapseActionView = 0x7f08005d;
-        public static final int decor_content_parent = 0x7f08006c;
-        public static final int default_activity_button = 0x7f08006d;
-        public static final int disableHome = 0x7f080080;
-        public static final int edit_query = 0x7f080089;
-        public static final int end = 0x7f08008b;
-        public static final int expand_activities_button = 0x7f080090;
-        public static final int expanded_menu = 0x7f080091;
-        public static final int highlight = 0x7f0800b4;
+        public static final int checkbox = 0x7f080058;
+        public static final int collapseActionView = 0x7f08005e;
+        public static final int decor_content_parent = 0x7f08006d;
+        public static final int default_activity_button = 0x7f08006e;
+        public static final int disableHome = 0x7f080081;
+        public static final int edit_query = 0x7f08008a;
+        public static final int end = 0x7f08008c;
+        public static final int expand_activities_button = 0x7f080091;
+        public static final int expanded_menu = 0x7f080092;
+        public static final int highlight = 0x7f0800b5;
         public static final int home = 0x7f0800b8;
         public static final int homeAsUp = 0x7f0800b9;
         public static final int icon = 0x7f0800ba;
         public static final int ifRoom = 0x7f0800bd;
         public static final int image = 0x7f0800c1;
-        public static final int listMode = 0x7f0800e2;
-        public static final int list_item = 0x7f0800e3;
-        public static final int middle = 0x7f0800e9;
-        public static final int never = 0x7f0800f5;
-        public static final int none = 0x7f0800f8;
-        public static final int normal = 0x7f0800f9;
-        public static final int progress_circular = 0x7f08010e;
-        public static final int progress_horizontal = 0x7f08010f;
-        public static final int radio = 0x7f080113;
-        public static final int search_badge = 0x7f080124;
-        public static final int search_bar = 0x7f080125;
-        public static final int search_button = 0x7f08012b;
-        public static final int search_close_btn = 0x7f08012c;
-        public static final int search_edit_frame = 0x7f08012d;
-        public static final int search_go_btn = 0x7f08012e;
-        public static final int search_mag_icon = 0x7f080130;
-        public static final int search_plate = 0x7f080131;
-        public static final int search_src_text = 0x7f080133;
-        public static final int search_voice_btn = 0x7f080135;
-        public static final int shortcut = 0x7f08013a;
-        public static final int showCustom = 0x7f08013b;
-        public static final int showHome = 0x7f08013d;
-        public static final int showTitle = 0x7f080140;
-        public static final int split_action_bar = 0x7f080148;
-        public static final int submit_area = 0x7f080155;
-        public static final int tabMode = 0x7f08015b;
-        public static final int title = 0x7f080175;
-        public static final int up = 0x7f080185;
-        public static final int useLogo = 0x7f080186;
-        public static final int withText = 0x7f08018d;
-        public static final int wrap_content = 0x7f08018f;
+        public static final int listMode = 0x7f0800e6;
+        public static final int list_item = 0x7f0800e7;
+        public static final int middle = 0x7f0800ed;
+        public static final int never = 0x7f0800f9;
+        public static final int none = 0x7f0800fc;
+        public static final int normal = 0x7f0800fd;
+        public static final int progress_circular = 0x7f080112;
+        public static final int progress_horizontal = 0x7f080113;
+        public static final int radio = 0x7f080117;
+        public static final int search_badge = 0x7f080128;
+        public static final int search_bar = 0x7f080129;
+        public static final int search_button = 0x7f08012f;
+        public static final int search_close_btn = 0x7f080130;
+        public static final int search_edit_frame = 0x7f080131;
+        public static final int search_go_btn = 0x7f080132;
+        public static final int search_mag_icon = 0x7f080134;
+        public static final int search_plate = 0x7f080135;
+        public static final int search_src_text = 0x7f080137;
+        public static final int search_voice_btn = 0x7f080139;
+        public static final int shortcut = 0x7f08013e;
+        public static final int showCustom = 0x7f08013f;
+        public static final int showHome = 0x7f080141;
+        public static final int showTitle = 0x7f080144;
+        public static final int split_action_bar = 0x7f08014c;
+        public static final int submit_area = 0x7f080159;
+        public static final int tabMode = 0x7f080160;
+        public static final int title = 0x7f08017a;
+        public static final int up = 0x7f08018a;
+        public static final int useLogo = 0x7f08018b;
+        public static final int withText = 0x7f080192;
+        public static final int wrap_content = 0x7f080194;
     }
     public static final class layout {
         private layout() {}
@@ -464,7 +464,7 @@ public final class R {
         public static final int abc_screen_toolbar = 0x7f0b0017;
         public static final int abc_search_dropdown_item_icons_2line = 0x7f0b0018;
         public static final int abc_search_view = 0x7f0b0019;
-        public static final int support_simple_spinner_dropdown_item = 0x7f0b0064;
+        public static final int support_simple_spinner_dropdown_item = 0x7f0b0065;
     }
     public static final class string {
         private string() {}

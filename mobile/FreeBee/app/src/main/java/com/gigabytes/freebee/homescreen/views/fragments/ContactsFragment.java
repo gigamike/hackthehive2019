@@ -225,10 +225,63 @@ public class ContactsFragment extends Fragment {
         ContactsAPI contactsAPI = retrofit.create(ContactsAPI.class);
         FreeBeeApplication freeBeeApplication = (FreeBeeApplication) getActivity().getApplication();
 
-        Log.d("debug", "organizationID: " + organizationID);
         Log.d("debug", "countryCode: " + countryCode);
         Log.d("debug", "city: " + city);
 
+        if(organizationID == null){
+            getSearchedVolunteerWithoutOrganization(contactsAPI, progressDialog, freeBeeApplication);
+        }else{
+            getSearchedVolunteer(contactsAPI, progressDialog, freeBeeApplication);
+        }
+    }
+
+    private void getSearchedVolunteerWithoutOrganization(ContactsAPI contactsAPI, ProgressDialog progressDialog, FreeBeeApplication freeBeeApplication){
+        contactsAPI.searchVolunteerWithoutOrganization(countryCode, city).enqueue(new Callback<VolunteerResponse>() {
+            @Override
+            public void onResponse(Call<VolunteerResponse> call, Response<VolunteerResponse> response) {
+                progressDialog.dismiss();
+                List<Volunteer> volunteerList = Objects.requireNonNull(response.body()).getResults();
+                List<ContactsDO> contactsDOList = new ArrayList<>();
+
+                if(volunteerList == null){
+                    Toast.makeText(getContext(), "Unfortunately I could not find any results matching your search", Toast.LENGTH_LONG).show();
+                }else{
+                    for (Volunteer volunteer : volunteerList) {
+
+                        if(volunteer.getId().equals(freeBeeApplication.userId)) {
+                            continue;
+                        }
+
+                        ContactsDO contactsDO = new ContactsDO(
+                                volunteer.getId(),
+                                volunteer.getFirstname(),
+                                volunteer.getMiddlename(),
+                                volunteer.getLastname(),
+                                volunteer.getOrganization(),
+                                volunteer.getProfilePic(),
+                                volunteer.getCountry(),
+                                volunteer.getCity(),
+                                volunteer.isOnline(),
+                                volunteer.getDistance(),
+                                volunteer.getMobileNumber()
+                        );
+
+                        contactsDOList.add(contactsDO);
+                        Log.d("debug","contact " + contactsDO);
+                    }
+                }
+
+                recyclerView.setAdapter(new ContactsListRecyclerViewAdapter(contactsDOList, getContext()));
+            }
+
+            @Override
+            public void onFailure(Call<VolunteerResponse> call, Throwable t) {
+                progressDialog.dismiss();
+            }
+        });
+    }
+
+    private void getSearchedVolunteer(ContactsAPI contactsAPI, ProgressDialog progressDialog, FreeBeeApplication freeBeeApplication){
         contactsAPI.getSearchedVolunteer(organizationID, countryCode, city).enqueue(new Callback<VolunteerResponse>() {
             @Override
             public void onResponse(Call<VolunteerResponse> call, Response<VolunteerResponse> response) {
@@ -236,28 +289,32 @@ public class ContactsFragment extends Fragment {
                 List<Volunteer> volunteerList = Objects.requireNonNull(response.body()).getResults();
                 List<ContactsDO> contactsDOList = new ArrayList<>();
 
-                for (Volunteer volunteer : volunteerList) {
+                if(volunteerList == null){
+                    Toast.makeText(getContext(), "Unfortunately I could not find any results matching your search", Toast.LENGTH_LONG).show();
+                }else {
+                    for (Volunteer volunteer : volunteerList) {
 
-                    if(volunteer.getId().equals(freeBeeApplication.userId)) {
-                        continue;
+                        if (volunteer.getId().equals(freeBeeApplication.userId)) {
+                            continue;
+                        }
+
+                        ContactsDO contactsDO = new ContactsDO(
+                                volunteer.getId(),
+                                volunteer.getFirstname(),
+                                volunteer.getMiddlename(),
+                                volunteer.getLastname(),
+                                volunteer.getOrganization(),
+                                volunteer.getProfilePic(),
+                                volunteer.getCountry(),
+                                volunteer.getCity(),
+                                volunteer.isOnline(),
+                                volunteer.getDistance(),
+                                volunteer.getMobileNumber()
+                        );
+
+                        contactsDOList.add(contactsDO);
+                        Log.d("debug", "contact " + contactsDO);
                     }
-
-                    ContactsDO contactsDO = new ContactsDO(
-                            volunteer.getId(),
-                            volunteer.getFirstname(),
-                            volunteer.getMiddlename(),
-                            volunteer.getLastname(),
-                            volunteer.getOrganization(),
-                            volunteer.getProfilePic(),
-                            volunteer.getCountry(),
-                            volunteer.getCity(),
-                            volunteer.isOnline(),
-                            volunteer.getDistance(),
-                            volunteer.getMobileNumber()
-                    );
-
-                    contactsDOList.add(contactsDO);
-                    Log.d("debug","contact " + contactsDO);
                 }
 
                 recyclerView.setAdapter(new ContactsListRecyclerViewAdapter(contactsDOList, getContext()));
